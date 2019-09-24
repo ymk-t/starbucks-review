@@ -1,35 +1,48 @@
 <template>
-  <div class="container">
+  <div
+    class="container"
+    :style="{
+      'background-image': 'url(' + assetsImage + ')'
+    }"
+  >
     <div>
-      <logo />
-      <h1 class="title">
-        starbucks-review
-      </h1>
+      <img class="title-logo" src="~/assets/img/StaReco.png" />
       <h2 class="subtitle">
-        My magnificent Nuxt.js project
+        お気に入りのスタバを見つけよう！
       </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
     </div>
+    <CardContents />
+    <CardContents />
+    <CardContents />
+    <CardContents />
+    <CardContents />
+    <CardContents />
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import CardContents from '~/components/CardContents.vue'
+import AssetsImage from '~/assets/img/Starbacks-China.jpg'
 
 export default {
+  layout: 'ForTopPage',
+  head: {
+    title: 'スタレコ！',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Starbuck Review Site'
+      }
+    ]
+  },
   components: {
-    Logo
+    CardContents
+  },
+  data() {
+    return {
+      assetsImage: AssetsImage
+    }
   }
 }
 </script>
@@ -41,33 +54,38 @@ export default {
 }
 */
 .container {
-  margin: 0 auto;
+  margin-top: 40px;
   min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-size: cover;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.container::before {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
 }
 
 .subtitle {
   font-weight: 300;
-  font-size: 42px;
-  color: #526488;
+  font-size: 18px;
+  color: white;
   word-spacing: 5px;
   padding-bottom: 15px;
+  position: relative;
+  z-index: 10;
 }
 
-.links {
-  padding-top: 15px;
+.title-logo {
+  width: 500px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 </style>
