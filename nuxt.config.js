@@ -63,7 +63,7 @@ export default {
    */
   axios: {
     proxy: true,
-    prefix: process.env.PREFIX
+    prefix: process.env.SITEURL
   },
   /*
    ** Build configuration
