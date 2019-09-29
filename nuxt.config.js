@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   mode: 'spa',
   /*
@@ -43,13 +45,26 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/proxy'
   ],
+  proxy: {
+    '/maps': {
+      target: 'https://maps.googleapis.com',
+      pathRewrite: {
+        '^/maps': '/maps/api/place/findplacefromtext/json'
+      }
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true,
+    prefix: 'http://localhost:3000'
+  },
   /*
    ** Build configuration
    */

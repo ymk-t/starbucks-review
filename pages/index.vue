@@ -8,7 +8,14 @@
     <div>
       <img class="title-logo" src="~/assets/img/StaReco.png" />
       <h2 class="subtitle">
-        お気に入りのスタバを見つけよう！
+        お気に入りのスタバを見つけよう！{{ map }}
+        <input
+          ref="starSearch"
+          v-model="searchQuery"
+          @change="searchResult"
+          class="text-black"
+          placeholder="店名入力して下さい"
+        />
       </h2>
     </div>
     <CardContents />
@@ -41,7 +48,26 @@ export default {
   },
   data() {
     return {
-      assetsImage: AssetsImage
+      assetsImage: AssetsImage,
+      map: {},
+      searchQuery: ''
+    }
+  },
+  methods: {
+    async searchResult() {
+      const response = await this.$axios.$get('/maps', {
+        method: 'get',
+        params: {
+          language: 'ja',
+          fields:
+            'formatted_address,geometry,icon,name,permanently_closed,photos,place_id,plus_code,types',
+          locationbias: 'point:35.003977299999995,135.7639905',
+          input: this.searchQuery,
+          inputtype: 'textquery',
+          key: process.env.GOOGLE_MAP_API
+        }
+      })
+      this.map = response.candidates[0]
     }
   }
 }
