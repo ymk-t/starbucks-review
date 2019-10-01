@@ -1,8 +1,8 @@
 <template>
   <div class="signup">
     <h2>Sign Up</h2>
-    <input v-mmodel="username" type="text" placeholder="Username" />
-    <input v-mmodel="password" type="password" placeholder="Password" />
+    <input v-model="username" type="text" placeholder="Username" />
+    <input v-model="password" type="password" placeholder="Password" />
     <button @click="signUp">登録</button>
     <p>
       アカウントをお持ちですか？
@@ -12,7 +12,8 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+import { mapActions, mapState, mapGetters } from 'vuex'
+import firebase from '~/plugins/firebase'
 
 export default {
   name: 'Signup',
@@ -22,7 +23,17 @@ export default {
       password: ''
     }
   },
+  computed: {
+    ...mapState(['user']),
+    ...mapGetters(['isAuthenticated'])
+  },
+  mounted() {
+    firebase.auth().onAuthStateChanged((user) => {
+      this.setUser(user)
+    })
+  },
   methods: {
+    ...mapActions(['setUser']),
     signUp() {
       firebase
         .auth()
