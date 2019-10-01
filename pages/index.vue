@@ -12,9 +12,9 @@
         <input
           ref="starSearch"
           v-model="searchQuery"
-          @change="searchResult"
           class="text-black"
           placeholder="店名入力して下さい"
+          @change="searchResult"
         />
       </h2>
     </div>
