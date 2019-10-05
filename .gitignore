@@ -91,3 +91,5 @@ sw.*
 *.swp
 
 map.http
+# Local Netlify folder
+.netlify

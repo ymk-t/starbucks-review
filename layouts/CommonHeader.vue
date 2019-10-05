@@ -1,17 +1,17 @@
 <template>
   <div>
-    <TopHeaderWrap />
+    <CommonHeader />
     <nuxt />
   </div>
 </template>
 
 <script type="text/javascript">
-import TopHeaderWrap from '~/components/TopHeaderWrap.vue'
+import CommonHeader from '~/components/TopHeaderWrap.vue'
 
 export default {
-  name: 'ForTopPage',
+  name: 'CommonHeader',
   components: {
-    TopHeaderWrap
+    CommonHeader
   }
 }
 </script>

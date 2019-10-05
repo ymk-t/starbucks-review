@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'HeaderWrap'
+  name: 'TopHeaderWrap'
 }
 </script>
 
@@ -99,15 +99,17 @@ export default {
   border-bottom: none;
 }
 
-.login {
-  max-width: 188px;
+.register {
+  width: 95px;
   background-color: green;
   border-bottom: 2px solid darkgreen;
 }
 
-.register {
-  max-width: 188px;
-  background-color: red;
-  border-bottom: 2px solid darkred;
+.login {
+  color: green;
+  font-size: 18px;
+  width: 95px;
+  background-color: white;
+  border-bottom: 2px solid darkgray;
 }
 </style>
