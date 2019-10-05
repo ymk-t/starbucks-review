@@ -2,8 +2,10 @@
   <div
     class="w-screen h-screen flex flex-col justify-center items-center bg-gray-200"
   >
-    <div class="max-w-2xl bg-white shadow-md rounded px-8 pt-6 pb-8">
-      <h2 class="font-bold text-2xl text-center mb-8">Sign Up</h2>
+    <div
+      class="max-w-2xl bg-white shadow-md rounded px-8 pt-6 pb-8 border border-green-600"
+    >
+      <h2 class="font-bold text-3xl text-center mb-2">会員登録</h2>
       <div class="flex flex-col mb-4">
         <input
           v-model="username"
@@ -20,7 +22,7 @@
       </div>
       <div class="flex justify-end my-2">
         <button
-          class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          class="w-full bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded"
           @click="signUp"
         >
           登録

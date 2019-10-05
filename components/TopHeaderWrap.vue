@@ -10,7 +10,11 @@
     >
       登録する
     </button>
-    <button class="Header-button login" type="button" onclick="">
+    <button
+      class="Header-button login"
+      type="button"
+      onclick="location.href='./LogIn'"
+    >
       ログイン
     </button>
     <link
@@ -109,6 +113,16 @@ export default {
   color: green;
   font-size: 18px;
   width: 95px;
+  background-color: rgb(240, 240, 240);
+  border-bottom: 2px solid darkgray;
+}
+
+.register:hover {
+  background-color: rgba(60, 210, 60);
+  border-bottom: 2px solid green;
+}
+
+.login:hover {
   background-color: white;
   border-bottom: 2px solid darkgray;
 }
