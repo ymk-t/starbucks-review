@@ -50,6 +50,10 @@ export default {
     '@nuxtjs/proxy'
   ],
   proxy: {
+    '/.netlify': {
+      target: 'http://localhost:9000',
+      pathRewrite: { '^/.netlify/functions': '' }
+    },
     '/maps': {
       target: 'https://maps.googleapis.com',
       changeOrigin: true,
