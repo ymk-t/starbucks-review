@@ -1,4 +1,4 @@
-export async function handler(event, context) {
+export async function handler(event) {
   const response = await this.$axios.$get('/maps', {
     method: 'get',
     params: {
