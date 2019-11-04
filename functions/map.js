@@ -1,3 +1,4 @@
+const util = require('util')
 const axios = require('axios')
 require('dotenv').config()
 
@@ -21,6 +22,6 @@ exports.handler = async function(event, context) {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(response.data.candidates[0])
+    body: JSON.stringify(util.inspect(response.data.candidates[0]))
   }
 }
