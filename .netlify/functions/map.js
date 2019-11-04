@@ -1,5 +1,7 @@
+import axios from 'axios'
+
 exports.handler = async function (event) {
-  const response = await this.$axios.$get('https://maps.googleapis.com/maps/api/place/findplacefromtext/json', {
+  const response = await axios.get('https://maps.googleapis.com/maps/api/place/findplacefromtext/json', {
     method: 'get',
     params: {
       language: 'ja',
