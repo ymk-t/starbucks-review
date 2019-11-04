@@ -1,6 +1,7 @@
-import axios from 'axios'
+const axios = require('axios')
 
-exports.handler = async function (event) {
+exports.handler = async function (event, context) {
+  console.log(event, context)
   const response = await axios.get('https://maps.googleapis.com/maps/api/place/findplacefromtext/json', {
     method: 'get',
     params: {
