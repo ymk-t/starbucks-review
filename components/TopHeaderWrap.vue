@@ -3,18 +3,10 @@
     <div class="Header-logo">
       <img src="../assets/img/StaReco.png" />
     </div>
-    <button
-      class="Header-button register"
-      type="button"
-      onclick="location.href='./SignUp'"
-    >
+    <button class="Header-button register" type="button" onclick="location.href='./SignUp'">
       登録する
     </button>
-    <button
-      class="Header-button login"
-      type="button"
-      onclick="location.href='./LogIn'"
-    >
+    <button class="Header-button login" type="button" onclick="location.href='./LogIn'">
       ログイン
     </button>
     <link
