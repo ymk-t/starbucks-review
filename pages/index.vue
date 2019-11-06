@@ -56,7 +56,7 @@ export default {
   methods: {
     async searchResult() {
       const response = await this.$axios.$get(
-        'https://maps.googleapis.com/maps/api/place/findplacefromtext/json',
+        'https://stareco.netlify.com/.netlify/functions/map',
         {
           method: 'get',
           params: {
