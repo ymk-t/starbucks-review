@@ -1,10 +1,6 @@
 <template>
-  <div
-    class="w-screen h-screen flex flex-col justify-center items-center bg-gray-200"
-  >
-    <div
-      class="max-w-2xl bg-white shadow-md rounded px-8 pt-6 pb-8 border border-green-600"
-    >
+  <div class="w-screen h-screen flex flex-col justify-center items-center bg-gray-200">
+    <div class="max-w-2xl bg-white shadow-md rounded px-8 pt-6 pb-8 border border-green-600">
       <h2 class="font-bold text-3xl text-center mb-2">会員登録</h2>
       <div class="flex flex-col mb-4">
         <input
@@ -31,9 +27,7 @@
 
       <p class>
         アカウントを既にお持ちですか？
-        <nuxt-link class="text-blue-400" to="/login"
-          >ログインはこちら！</nuxt-link
-        >
+        <nuxt-link class="text-blue-400" to="/login">ログインはこちら！</nuxt-link>
       </p>
     </div>
   </div>
