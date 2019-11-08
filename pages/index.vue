@@ -60,7 +60,7 @@ export default {
         {
           method: 'get',
           params: {
-            input: this.searchQuery
+            input: this.searchQuery + '+スターバックス'
           }
         }
       )
