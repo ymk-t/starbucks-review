@@ -90,3 +90,5 @@ sw.*
 *.swp
 
 map.http
+
+.netlify/functions
