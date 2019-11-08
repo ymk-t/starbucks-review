@@ -19,11 +19,6 @@
       </h2>
     </div>
     <CardContents />
-    <CardContents />
-    <CardContents />
-    <CardContents />
-    <CardContents />
-    <CardContents />
   </div>
 </template>
 

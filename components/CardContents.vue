@@ -1,12 +1,12 @@
 <template>
-  <div id="recommend" class="card">
+  <div id="read-map" class="card">
     <img
       class="card-img"
       src="https://media-cdn.tripadvisor.com/media/photo-s/0f/e8/9e/39/photo0jpg.jpg"
     />
     <div class=".card-content">
-      <h1>Title</h1>
-      <p>contents</p>
+      <h1>{{ map.name }}</h1>
+      <p>{{ map.formatted_address }}</p>
     </div>
     <div class="card-link">
       <a href="">About</a>
@@ -15,14 +15,12 @@
 </template>
 
 <script>
+import store from '~/store/store.js'
+
 export default {
-  methods: {
-    cloneCards(cardsId, items) {
-      const cards = document.getElementById('cardsId')
-      const clone = cards.firstElementChild.cloneNode(true)
-      for (let i = 1; i < items; i++) {
-        cards.appendChild(clone)
-      }
+  computed: {
+    map() {
+      return store.state.mapCandidate
     }
   }
 }
