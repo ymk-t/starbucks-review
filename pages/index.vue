@@ -60,12 +60,7 @@ export default {
         {
           method: 'get',
           params: {
-            language: 'ja',
-            fields:
-              'formatted_address,geometry,icon,name,permanently_closed,photos,place_id,plus_code,types',
-            input: this.searchQuery,
-            inputtype: 'textquery',
-            key: process.env.GOOGLE_MAP_API
+            input: this.searchQuery
           }
         }
       )
