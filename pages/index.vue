@@ -64,7 +64,7 @@ export default {
           }
         }
       )
-      this.map = response.candidates[0]
+      this.map = response
     }
   }
 }
