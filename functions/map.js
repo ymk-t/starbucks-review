@@ -11,7 +11,6 @@ exports.handler = async function(event, context) {
         language: 'ja',
         fields:
           'formatted_address,geometry,icon,name,permanently_closed,photos,place_id,plus_code,types',
-        locationbias: 'point:35.003977299999995,135.7639905',
         input: event.queryStringParameters.input,
         inputtype: 'textquery',
         key: process.env.GOOGLE_MAP_API
