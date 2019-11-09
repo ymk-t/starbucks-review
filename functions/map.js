@@ -9,8 +9,7 @@ exports.handler = async function(event, context) {
       method: 'get',
       params: {
         language: 'ja',
-        fields:
-          'formatted_address,geometry,icon,name,permanently_closed,photos,place_id,plus_code,types',
+        fields: 'formatted_address,name,photos',
         input: event.queryStringParameters.input,
         inputtype: 'textquery',
         key: process.env.GOOGLE_MAP_API
@@ -21,7 +20,7 @@ exports.handler = async function(event, context) {
 
   for (let i = 0; i < response.data.candidates.length; i++) {
     returnRequest[i] = response.data.candidates[i]
-    if (i <= 4) {
+    if (i >= 4) {
       break
     }
   }

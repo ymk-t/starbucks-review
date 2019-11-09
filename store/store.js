@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+export const store = new Vuex.Store({
   state: {
     mapCandidate: [
       {
@@ -13,8 +13,8 @@ const store = new Vuex.Store({
     ]
   },
   mutations: {
-    addCandidate(mapCandidate, map, i) {
-      this.state.mapCandidate[i] = map
+    addCandidate(state, map, i) {
+      state.mapCandidate[i] = map[i]
     }
   },
   setMapInfo(maps, i) {

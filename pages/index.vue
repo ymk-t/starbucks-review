@@ -8,7 +8,7 @@
     <div>
       <img class="title-logo" src="~/assets/img/StaReco.png" />
       <h2 class="subtitle">
-        お気に入りのスタバを見つけよう！
+        お気に入りのスタバを見つけよう！{{ map }}
         <input
           ref="starSearch"
           v-model="searchQuery"
@@ -51,18 +51,19 @@ export default {
   },
   methods: {
     async searchResult() {
-      const response = await this.$axios.$get(
-        'https://stareco.netlify.com/.netlify/functions/map',
-        {
-          method: 'get',
-          params: {
-            input: this.searchQuery + '+スターバックス'
-          }
+      const response = await this.$axios.$get(process.env.FUNCTIONURL, {
+        method: 'get',
+        params: {
+          language: 'ja',
+          input: this.searchQuery + '+スターバックス',
+          fields: 'formatted_address,name,photos',
+          inputtype: 'textquery'
         }
-      )
+      })
       for (let i = 0; i < response.length; i++) {
-        store.commit('addCandidate', response[i], i)
+        store.commit('addCandidate', response, i)
       }
+      return (this.map = response)
     }
   }
 }
