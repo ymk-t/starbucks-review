@@ -1,15 +1,14 @@
 <template>
-  <div id="read-map" class="card">
-    <img
-      class="card-img"
-      src="https://media-cdn.tripadvisor.com/media/photo-s/0f/e8/9e/39/photo0jpg.jpg"
-    />
-    <div class=".card-content">
-      <h1>{{ map.name }}</h1>
-      <p>{{ map.formatted_address }}</p>
-    </div>
-    <div class="card-link">
-      <a href="">About</a>
+  <div>
+    <div v-for="map in maps" id="read-map" :key="map.name" class="card">
+      <img class="card-img" :src="map.photo" />
+      <div class=".card-content">
+        <h1>{{ map.name }}</h1>
+        <p>{{ map.formatted_address }}</p>
+      </div>
+      <div class="card-link">
+        <a href="">About</a>
+      </div>
     </div>
   </div>
 </template>
@@ -19,7 +18,7 @@ import store from '~/store/store.js'
 
 export default {
   computed: {
-    map() {
+    maps() {
       return store.state.mapCandidate
     }
   }

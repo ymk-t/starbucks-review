@@ -4,14 +4,16 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    mapCandidate: {
-      name: 'test1',
-      formatted_address: 'test2',
-      photo: 'test3'
-    }
+    mapCandidate: [
+      {
+        name: 'test1',
+        formatted_address: 'test2',
+        photo: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/e8/9e/39/photo0jpg.jpg'
+      }
+    ]
   },
-  setMapInfo(maps) {
-    this.state.mapCandidate = maps
+  setMapInfo(maps, i) {
+    this.state.mapCandidate[i] = maps
   }
 })
 

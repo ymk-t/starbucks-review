@@ -8,7 +8,7 @@
     <div>
       <img class="title-logo" src="~/assets/img/StaReco.png" />
       <h2 class="subtitle">
-        お気に入りのスタバを見つけよう！{{ map }}
+        お気に入りのスタバを見つけよう！
         <input
           ref="starSearch"
           v-model="searchQuery"
@@ -25,6 +25,7 @@
 <script>
 import CardContents from '~/components/CardContents.vue'
 import AssetsImage from '~/assets/img/Starbacks-China.jpg'
+import store from '~/store/store.js'
 
 export default {
   layout: 'ForTopPage',
@@ -59,7 +60,9 @@ export default {
           }
         }
       )
-      this.map = response
+      for (let i = 0; i < response.length; i++) {
+        store.setMapInfo(response[i], i)
+      }
     }
   }
 }

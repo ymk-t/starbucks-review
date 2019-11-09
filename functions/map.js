@@ -17,9 +17,17 @@ exports.handler = async function(event, context) {
       }
     }
   )
+  const returnRequest = []
+
+  for (let i = 0; i < response.data.candidates.length; i++) {
+    returnRequest[i] = response.data.candidates[i]
+    if (i <= 4) {
+      break
+    }
+  }
 
   return {
     statusCode: 200,
-    body: JSON.stringify(util.inspect(response.data.candidates[0]))
+    body: JSON.stringify(util.inspect(returnRequest))
   }
 }
