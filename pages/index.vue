@@ -61,7 +61,7 @@ export default {
         }
       )
       for (let i = 0; i < response.length; i++) {
-        store.setMapInfo(response[i], i)
+        store.commit('addCandidate', response[i], i)
       }
     }
   }

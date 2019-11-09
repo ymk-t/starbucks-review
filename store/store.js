@@ -12,6 +12,11 @@ const store = new Vuex.Store({
       }
     ]
   },
+  mutations: {
+    addCandidate(mapCandidate, map, i) {
+      this.state.mapCandidate[i] = map
+    }
+  },
   setMapInfo(maps, i) {
     this.state.mapCandidate[i] = maps
   }
