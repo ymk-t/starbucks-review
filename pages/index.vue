@@ -64,7 +64,7 @@ export default {
         params: {
           language: 'ja',
           input: this.searchQuery + '+スターバックス',
-          fields: 'formatted_address,name,photos',
+          fields: 'formatted_address,name,place_id,photos',
           inputtype: 'textquery'
         }
       })

@@ -15,7 +15,7 @@ export default {
       method: 'get',
       params: {
         place_id: params.id,
-        fields: 'formatted_address,name,photo'
+        fields: 'name,formatted_address,photo'
       }
     })
     console.log(response)
