@@ -53,14 +53,7 @@ export default {
     '/.netlify': {
       target: 'http://localhost:9000',
       changeOrigin: true,
-      pathRewrite: { '^/.netlify': '/.netlify/functions/map' }
-    },
-    '/maps': {
-      target: 'https://maps.googleapis.com',
-      changeOrigin: true,
-      pathRewrite: {
-        '^/maps': '/maps/api/place/findplacefromtext/json'
-      }
+      pathRewrite: { '^/.netlify': '/.netlify/functions' }
     }
   },
   /*

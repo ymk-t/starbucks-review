@@ -8,7 +8,7 @@
     <div>
       <img class="title-logo" src="~/assets/img/StaReco.png" />
       <h2 class="subtitle">
-        お気に入りのスタバを見つけよう！{{ jsonData }}
+        お気に入りのスタバを見つけよう！{{ places }}
         <input
           ref="starSearch"
           v-model="searchQuery"
@@ -18,14 +18,21 @@
         />
       </h2>
     </div>
-    <CardContents />
+    <ul v-for="place in places" :key="place.name">
+      <CardContents
+        :key="place.placeId"
+        :name="place.name"
+        :place-id="place.placeId"
+        :formatted-address="place.formattedAddress"
+        :photo="place.photos[0]"
+      />
+    </ul>
   </div>
 </template>
 
 <script>
 import CardContents from '~/components/CardContents.vue'
 import AssetsImage from '~/assets/img/Starbacks-China.jpg'
-import store from '~/store/store.js'
 
 export default {
   layout: 'ForTopPage',
@@ -47,21 +54,12 @@ export default {
       assetsImage: AssetsImage,
       map: {},
       searchQuery: '',
-      jsonData: {
-        name: '',
-        formatted_address: '',
-        photo: {
-          height: 0,
-          html_attributions: '',
-          photo_reference: '',
-          width: 0
-        }
-      }
+      places: []
     }
   },
   methods: {
     async searchResult() {
-      const response = await this.$axios.$get('/.netlify', {
+      const response = await this.$axios.$get('/.netlify/map', {
         method: 'get',
         params: {
           language: 'ja',
@@ -70,11 +68,19 @@ export default {
           inputtype: 'textquery'
         }
       })
-      this.jsonData = JSON.parse(JSON.stringify(response))
-      for (let i = 0; i < this.jsonData.length; i++) {
-        store.commit('setCandidate', this.jsonData)
+      if (response.status === 'OK') {
+        response.candidates.map((place, index) => {
+          console.log(place)
+          this.places.push({
+            name: place.name,
+            placeId: place.place_id,
+            formattedAddress: place.formatted_address,
+            photos: place.photos
+          })
+        })
+      } else {
+        console.log(response.status)
       }
-      console.log(store.state.mapCandidate[0].name)
     }
   }
 }

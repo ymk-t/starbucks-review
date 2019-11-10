@@ -1,25 +1,29 @@
 <template>
-  <div>
-    <div v-for="map in maps" id="read-map" :key="map.name" class="card">
-      <img class="card-img" :src="map.photo.photo_reference" />
+  <li>
+    <div class="card">
+      <img class="card-img" :src="photo.photo_reference" />
       <div class=".card-content">
-        <h1>{{ map.name }}</h1>
-        <p>{{ map.formatted_address }}</p>
+        <h1>{{ name }}</h1>
+        <p>{{ formatted_address }}</p>
       </div>
       <div class="card-link">
-        <a href="">About</a>
+        <nuxt-link :to="getUrl">About</nuxt-link>
       </div>
     </div>
-  </div>
+  </li>
 </template>
 
 <script>
-import store from '~/store/store.js'
-
 export default {
+  props: {
+    name: String,
+    placeId: String,
+    formattedAddress: String,
+    photo: String
+  },
   computed: {
-    maps() {
-      return store.state.mapCandidate
+    getUrl() {
+      return `/store/${this.placeId}`
     }
   }
 }

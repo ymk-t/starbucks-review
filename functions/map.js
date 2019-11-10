@@ -1,4 +1,3 @@
-const util = require('util')
 const axios = require('axios')
 require('dotenv').config()
 
@@ -9,7 +8,7 @@ exports.handler = async function(event, context) {
       method: 'get',
       params: {
         language: 'ja',
-        fields: 'formatted_address,name,photos',
+        fields: event.queryStringParameters.fields,
         input: event.queryStringParameters.input,
         inputtype: 'textquery',
         key: process.env.GOOGLE_MAP_API
