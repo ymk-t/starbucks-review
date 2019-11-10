@@ -8,7 +8,7 @@
     <div>
       <img class="title-logo" src="~/assets/img/StaReco.png" />
       <h2 class="subtitle">
-        お気に入りのスタバを見つけよう！{{ map }}
+        お気に入りのスタバを見つけよう！{{ jsonData }}
         <input
           ref="starSearch"
           v-model="searchQuery"
@@ -46,12 +46,22 @@ export default {
     return {
       assetsImage: AssetsImage,
       map: {},
-      searchQuery: ''
+      searchQuery: '',
+      jsonData: {
+        name: '',
+        formatted_address: '',
+        photo: {
+          height: 0,
+          html_attributions: '',
+          photo_reference: '',
+          width: 0
+        }
+      }
     }
   },
   methods: {
     async searchResult() {
-      const response = await this.$axios.$get(process.env.FUNCTIONURL, {
+      const response = await this.$axios.$get('/.netlify', {
         method: 'get',
         params: {
           language: 'ja',
@@ -60,10 +70,11 @@ export default {
           inputtype: 'textquery'
         }
       })
-      for (let i = 0; i < response.length; i++) {
-        store.commit('addCandidate', response, i)
+      this.jsonData = JSON.parse(JSON.stringify(response))
+      for (let i = 0; i < this.jsonData.length; i++) {
+        store.commit('setCandidate', this.jsonData)
       }
-      return (this.map = response)
+      console.log(store.state.mapCandidate[0].name)
     }
   }
 }

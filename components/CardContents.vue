@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="map in maps" id="read-map" :key="map.name" class="card">
-      <img class="card-img" :src="map.photo" />
+      <img class="card-img" :src="map.photo.photo_reference" />
       <div class=".card-content">
         <h1>{{ map.name }}</h1>
         <p>{{ map.formatted_address }}</p>

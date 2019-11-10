@@ -52,7 +52,8 @@ export default {
   proxy: {
     '/.netlify': {
       target: 'http://localhost:9000',
-      pathRewrite: { '^/.netlify/functions': '' }
+      changeOrigin: true,
+      pathRewrite: { '^/.netlify': '/.netlify/functions/map' }
     },
     '/maps': {
       target: 'https://maps.googleapis.com',

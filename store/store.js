@@ -8,17 +8,27 @@ export const store = new Vuex.Store({
       {
         name: 'test1',
         formatted_address: 'test2',
-        photo: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/e8/9e/39/photo0jpg.jpg'
+        photo: {
+          height: 0,
+          html_attributions: '',
+          photo_reference:
+            'https://media-cdn.tripadvisor.com/media/photo-s/0f/e8/9e/39/photo0jpg.jpg',
+          width: 0
+        }
       }
     ]
   },
-  mutations: {
-    addCandidate(state, map, i) {
-      state.mapCandidate[i] = map[i]
+  getters: {
+    getCandidates(state) {
+      return function(state) {
+        return state.mapCandidate
+      }
     }
   },
-  setMapInfo(maps, i) {
-    this.state.mapCandidate[i] = maps
+  mutations: {
+    setCandidate(state, map) {
+      Vue.set(state, 'mapCandidate', map)
+    }
   }
 })
 
