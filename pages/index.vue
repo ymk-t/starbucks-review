@@ -9,6 +9,7 @@
       <img class="title-logo" src="~/assets/img/StaReco.png" />
       <h2 class="subtitle">
         お気に入りのスタバを見つけよう！
+        <br />
         <input
           ref="starSearch"
           v-model="searchQuery"
@@ -75,9 +76,18 @@ export default {
             name: place.name,
             placeId: place.place_id,
             formattedAddress: place.formatted_address,
-            photos: place.photos
+            photoReferences: place.photos
           })
         })
+        const responsePhoto = await this.$axios.$get('/.netlify/functions/map_photo', {
+          method: 'get',
+          params: {
+            photoreference: this.places[0].photoReferences[0],
+            maxwidth: '200',
+            key: process.env.GOOGLE_MAP_API
+          }
+        })
+        this.places[0].photos[0] = responsePhoto
       } else {
         console.log(response.status)
       }
@@ -155,7 +165,7 @@ export default {
 
   .subtitle {
     font-weight: 300;
-    font-size: 24px;
+    font-size: 22px;
     color: white;
     word-spacing: 3px;
     padding-bottom: 10px;
