@@ -13,7 +13,7 @@
           ref="starSearch"
           v-model="searchQuery"
           class="text-black"
-          placeholder="店名入力して下さい"
+          placeholder="店名or場所を入力して下さい"
           @change="searchResult"
         />
       </h2>
@@ -121,7 +121,9 @@ export default {
     position: relative;
     z-index: 10;
   }
-
+  .subtitle input {
+    width: 300px;
+  }
   .title-logo {
     width: 500px;
     margin: 0 auto;
@@ -152,7 +154,7 @@ export default {
   }
 
   .subtitle {
-    font-weight: 150;
+    font-weight: 300;
     font-size: 16px;
     color: white;
     word-spacing: 3px;
@@ -160,7 +162,9 @@ export default {
     position: relative;
     z-index: 6;
   }
-
+  .subtitle input {
+    width: 220px;
+  }
   .title-logo {
     width: 300px;
     margin: 0 auto;
