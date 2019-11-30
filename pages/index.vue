@@ -8,7 +8,7 @@
     <div>
       <img class="title-logo" src="~/assets/img/StaReco.png" />
       <h2 class="subtitle">
-        お気に入りのスタバを見つけよう！{{ places }}
+        お気に入りのスタバを見つけよう！
         <input
           ref="starSearch"
           v-model="searchQuery"
@@ -132,7 +132,8 @@ export default {
 
 @media screen and (max-width: 999px) {
   .container {
-    margin-top: 20px;
+    padding-top: 60px;
+    padding-bottom: 90%;
     min-height: 60vh;
     justify-content: center;
     align-items: center;
@@ -152,7 +153,7 @@ export default {
 
   .subtitle {
     font-weight: 150;
-    font-size: 12px;
+    font-size: 16px;
     color: white;
     word-spacing: 3px;
     padding-bottom: 10px;

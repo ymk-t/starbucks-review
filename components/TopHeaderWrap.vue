@@ -14,8 +14,8 @@
       rel="stylesheet"
     />
     <form method="get" action="#" class="search_container">
-      <input type="text" size="25" placeholder="店舗・メニューを探す" />
-      <input type="submit" value="検索" />
+      <input class="search-store" placeholder=" 店舗・メニューを探す" />
+      <input class="search-store" type="submit" value="検索" />
     </form>
   </div>
 </template>
@@ -49,10 +49,10 @@ export default {
     position: relative;
     border: 1px solid black;
     display: block;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-right: 20px;
     border-radius: 20px;
-    width: 250px;
+    width: 400px;
     overflow: hidden;
     float: right;
   }
@@ -66,9 +66,9 @@ export default {
   .search_container input[type='submit'] {
     box-sizing: inherit;
     cursor: pointer;
-    width: 40px;
+    width: 60px;
     font-family: FontAwesome;
-    font-size: 16px;
+    font-size: 25px;
     border: none;
     background: #3879d9;
     color: white;
@@ -95,7 +95,10 @@ export default {
     transform: translateY(4px);
     border-bottom: none;
   }
-
+  .search-store {
+    width: 500px;
+    font-size: 25px;
+  }
   .register {
     width: 95px;
     background-color: green;
@@ -133,7 +136,7 @@ export default {
   }
 
   .Header-logo {
-    width: 200px;
+    width: 150px;
     opacity: 1;
     float: left;
   }
@@ -143,10 +146,10 @@ export default {
     position: relative;
     border: 1px solid black;
     display: block;
-    margin-top: 16px;
+    margin-top: 10px;
     margin-right: 12px;
     border-radius: 12px;
-    width: 160px;
+    width: 220px;
     overflow: hidden;
     float: right;
   }
@@ -160,9 +163,9 @@ export default {
   .search_container input[type='submit'] {
     box-sizing: inherit;
     cursor: pointer;
-    width: 27px;
+    width: 37px;
     font-family: FontAwesome;
-    font-size: 11px;
+    font-size: 16px;
     border: none;
     background: #3879d9;
     color: white;
@@ -173,9 +176,9 @@ export default {
   }
 
   .Header-button {
-    max-width: 120px;
+    max-width: 150px;
     text-align: center;
-    font-size: 11px;
+    font-size: 8px;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
@@ -189,17 +192,21 @@ export default {
     transform: translateY(2px);
     border-bottom: none;
   }
-
+  .search-store {
+    width: 200px;
+    font-size: 16px;
+  }
   .register {
-    width: 60px;
+    font-size: 11px;
+    width: 70px;
     background-color: green;
     border-bottom: 2px solid darkgreen;
   }
 
   .login {
     color: green;
-    font-size: 12px;
-    width: 60px;
+    font-size: 11px;
+    width: 70px;
     background-color: rgb(240, 240, 240);
     border-bottom: 2px solid darkgray;
   }
