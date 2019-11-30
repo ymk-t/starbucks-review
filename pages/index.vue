@@ -133,7 +133,7 @@ export default {
 @media screen and (max-width: 999px) {
   .container {
     padding-top: 60px;
-    padding-bottom: 115%;
+    padding-bottom: 125%;
     min-height: 60vh;
     justify-content: center;
     align-items: center;
