@@ -136,20 +136,21 @@ export default {
   }
 
   .Header-logo {
-    width: 150px;
+    width: 120px;
     opacity: 1;
     float: left;
+    margin-top: 3px;
   }
 
   .search_container {
     box-sizing: border-box;
     position: relative;
-    border: 1px solid black;
+    border: 0px solid black;
     display: block;
     margin-top: 10px;
     margin-right: 12px;
     border-radius: 12px;
-    width: 220px;
+    width: 0px;
     overflow: hidden;
     float: right;
   }
@@ -163,9 +164,9 @@ export default {
   .search_container input[type='submit'] {
     box-sizing: inherit;
     cursor: pointer;
-    width: 37px;
+    width: 20px;
     font-family: FontAwesome;
-    font-size: 16px;
+    font-size: 8px;
     border: none;
     background: #3879d9;
     color: white;
@@ -193,8 +194,7 @@ export default {
     border-bottom: none;
   }
   .search-store {
-    width: 200px;
-    font-size: 16px;
+    font-size: 8px;
   }
   .register {
     font-size: 11px;
