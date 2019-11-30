@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     async searchResult() {
-      const response = await this.$axios.$get('/.netlify/map', {
+      const response = await this.$axios.$get('/.netlify/functions/map', {
         method: 'get',
         params: {
           language: 'ja',
@@ -92,39 +92,79 @@ export default {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
-  margin-top: 40px;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-size: cover;
+@media screen and (min-width: 1000px) {
+  .container {
+    margin-top: 40px;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+  }
+
+  .container::before {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: ' ';
+  }
+
+  .subtitle {
+    font-weight: 300;
+    font-size: 18px;
+    color: white;
+    word-spacing: 5px;
+    padding-bottom: 15px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .title-logo {
+    width: 500px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
 }
 
-.container::before {
-  background-color: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  content: ' ';
-}
+@media screen and (max-width: 999px) {
+  .container {
+    margin-top: 20px;
+    min-height: 60vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+  }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 18px;
-  color: white;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-  position: relative;
-  z-index: 10;
-}
+  .container::before {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: ' ';
+  }
 
-.title-logo {
-  width: 500px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 10;
+  .subtitle {
+    font-weight: 150;
+    font-size: 12px;
+    color: white;
+    word-spacing: 3px;
+    padding-bottom: 10px;
+    position: relative;
+    z-index: 6;
+  }
+
+  .title-logo {
+    width: 300px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 6;
+  }
 }
 </style>

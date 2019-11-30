@@ -49,13 +49,6 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/proxy'
   ],
-  proxy: {
-    '/.netlify': {
-      target: 'http://localhost:9000',
-      changeOrigin: true,
-      pathRewrite: { '^/.netlify': '/.netlify/functions' }
-    }
-  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
