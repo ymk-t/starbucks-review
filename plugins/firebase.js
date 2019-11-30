@@ -3,7 +3,7 @@ import firebase from 'firebase'
 // Your web app's Firebase configuration
 if (!firebase.apps.length) {
   firebase.initializeApp({
-    apiKey: process.env.APIKEY,
+    apiKey: 'AIzaSyBnEo2Xsb_0hlZanuJLag3MkY6_61kIh9s',
     authDomain: process.env.AUTHDOMAIN,
     databaseURL: process.env.DATABASEURL,
     projectId: process.env.PROJECTID,
