@@ -155,7 +155,7 @@ export default {
 
   .subtitle {
     font-weight: 300;
-    font-size: 16px;
+    font-size: 24px;
     color: white;
     word-spacing: 3px;
     padding-bottom: 10px;
@@ -163,7 +163,7 @@ export default {
     z-index: 6;
   }
   .subtitle input {
-    width: 220px;
+    width: 350px;
   }
   .title-logo {
     width: 300px;
