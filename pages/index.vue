@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     async searchResult() {
-      const response = await this.$axios.$get('/.netlify/map', {
+      const response = await this.$axios.$get('/.netlify/functions/map', {
         method: 'get',
         params: {
           language: 'ja',
@@ -81,7 +81,7 @@ export default {
             photo: ''
           })
         })
-        const responsePhoto = await this.$axios.$get('/.netlify/map-photo', {
+        const responsePhoto = await this.$axios.$get('/.netlify/functions/map-photo', {
           method: 'get',
           params: {
             photoreference: this.places[0].photoReference,

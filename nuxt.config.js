@@ -62,7 +62,7 @@ export default {
     '/.netlify': {
       target: 'http://localhost:9000',
       changeOrigin: true,
-      pathRewrite: { '^/.netlify': '/.netlify/functions' }
+      pathRewrite: { '^/.netlify': '/.netlify' }
     }
   },
   /*
