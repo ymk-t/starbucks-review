@@ -69,7 +69,6 @@ export default {
           inputtype: 'textquery'
         }
       })
-      console.log(response)
       if (response.status === 'OK') {
         const responsePhoto = await this.$axios.$get('/.netlify/functions/mapPhoto', {
           method: 'get',
@@ -80,7 +79,6 @@ export default {
           }
         })
         response.candidates.map((place, index) => {
-          console.log(place)
           this.places.push({
             name: place.name,
             placeId: place.place_id,
@@ -88,7 +86,6 @@ export default {
             photoReference: place.photos[0].photo_reference,
             photo: responsePhoto
           })
-          console.log(this.places[0].photo)
         })
       } else {
       }
