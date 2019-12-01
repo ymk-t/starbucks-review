@@ -53,9 +53,12 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {
-    proxy: true,
-    prefix: process.env.SITEURL
+  proxy: {
+    '/.netlify': {
+      target: 'http://localhost:9000',
+      changeOrigin: true,
+      pathRewrite: { '^/.netlify': '/.netlify/functions' }
+    }
   },
   /*
    ** Build configuration

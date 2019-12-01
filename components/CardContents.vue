@@ -1,10 +1,10 @@
 <template>
   <li>
     <div class="card">
-      <img class="card-img" :src="photo.photo_reference" />
+      <img class="card-img" :src="photo" />
       <div class=".card-content">
         <h1>{{ name }}</h1>
-        <p>{{ formatted_address }}</p>
+        <p>{{ formattedAddress }}</p>
       </div>
       <div class="card-link">
         <nuxt-link :to="getUrl">About</nuxt-link>

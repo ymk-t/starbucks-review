@@ -25,7 +25,7 @@
         :name="place.name"
         :place-id="place.placeId"
         :formatted-address="place.formattedAddress"
-        :photo="place.photos[0]"
+        :photo="place.photo"
       />
     </ul>
   </div>
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     async searchResult() {
-      const response = await this.$axios.$get('/.netlify/functions/map', {
+      const response = await this.$axios.$get('/.netlify/map', {
         method: 'get',
         params: {
           language: 'ja',
@@ -69,6 +69,7 @@ export default {
           inputtype: 'textquery'
         }
       })
+      console.log(response)
       if (response.status === 'OK') {
         response.candidates.map((place, index) => {
           console.log(place)
@@ -76,20 +77,21 @@ export default {
             name: place.name,
             placeId: place.place_id,
             formattedAddress: place.formatted_address,
-            photoReferences: place.photos
+            photoReference: place.photos[0].photo_reference,
+            photo: ''
           })
         })
-        const responsePhoto = await this.$axios.$get('/.netlify/functions/map_photo', {
+        const responsePhoto = await this.$axios.$get('/.netlify/map-photo', {
           method: 'get',
           params: {
-            photoreference: this.places[0].photoReferences[0],
+            photoreference: this.places[0].photoReference,
             maxwidth: '200',
             key: process.env.GOOGLE_MAP_API
           }
         })
-        this.places[0].photos[0] = responsePhoto
+        this.places[0].photo = responsePhoto
+        console.log(this.places[0].photo)
       } else {
-        console.log(response.status)
       }
     }
   }

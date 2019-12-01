@@ -12,6 +12,6 @@ exports.handler = async function(event, context) {
   })
   return {
     statusCode: 200,
-    body: response.toString('base64')
+    body: response.request.res.responseUrl
   }
 }
