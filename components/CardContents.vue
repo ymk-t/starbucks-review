@@ -2,7 +2,7 @@
   <li>
     <div class="card">
       <img class="card-img" :src="photo" />
-      <div class=".card-content">
+      <div class="card-content">
         <h1>{{ name }}</h1>
         <p>{{ formattedAddress }}</p>
       </div>
@@ -33,7 +33,7 @@ export default {
 .card {
   display: inline-block;
   margin: 20px;
-  width: 150px;
+  width: 300px;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
@@ -42,18 +42,20 @@ export default {
 }
 .card-img {
   border-radius: 5px 5px 0 0;
-  max-width: 140px;
+  max-width: 250px;
   height: auto;
-  padding-left: 10px;
+  margin: 0 auto;
+  padding-top: 10px;
 }
 .card-content {
   padding: 20px;
+  text-align: left;
 }
 .card-content h1 {
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 20px;
-  text-align: center;
   color: #333;
+  text-align: left;
 }
 .card-content p {
   color: #777;

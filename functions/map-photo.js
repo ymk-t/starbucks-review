@@ -6,7 +6,7 @@ exports.handler = async function(event, context) {
     method: 'get',
     params: {
       photoreference: event.queryStringParameters.photoreference,
-      maxwidth: '200',
+      maxwidth: '250',
       key: process.env.GOOGLE_MAP_API
     }
   })
