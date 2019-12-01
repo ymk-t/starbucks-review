@@ -71,6 +71,14 @@ export default {
       })
       console.log(response)
       if (response.status === 'OK') {
+        const responsePhoto = await this.$axios.$get('/.netlify/functions/mapPhoto', {
+          method: 'get',
+          params: {
+            photoreference: response.candidates[0].photos[0].photo_reference,
+            maxwidth: '200',
+            key: process.env.GOOGLE_MAP_API
+          }
+        })
         response.candidates.map((place, index) => {
           console.log(place)
           this.places.push({
@@ -78,19 +86,10 @@ export default {
             placeId: place.place_id,
             formattedAddress: place.formatted_address,
             photoReference: place.photos[0].photo_reference,
-            photo: ''
+            photo: responsePhoto
           })
+          console.log(this.places[0].photo)
         })
-        const responsePhoto = await this.$axios.$get('/.netlify/functions/mapPhoto', {
-          method: 'get',
-          params: {
-            photoreference: this.places[0].photoReference,
-            maxwidth: '200',
-            key: process.env.GOOGLE_MAP_API
-          }
-        })
-        this.places[0].photo = responsePhoto
-        console.log(this.places[0].photo)
       } else {
       }
     }
