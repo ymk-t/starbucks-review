@@ -81,7 +81,7 @@ export default {
             photo: ''
           })
         })
-        const responsePhoto = await this.$axios.$get('/.netlify/functions/map-photo', {
+        const responsePhoto = await this.$axios.$get('/.netlify/functions/mapPhoto', {
           method: 'get',
           params: {
             photoreference: this.places[0].photoReference,
