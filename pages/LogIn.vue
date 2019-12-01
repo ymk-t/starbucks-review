@@ -19,9 +19,9 @@
       <div class="flex justify-end my-2">
         <button
           class="w-full bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded"
-          @click="signUp"
+          @click="signIn"
         >
-          登録
+          ログイン
         </button>
       </div>
 
@@ -38,7 +38,7 @@ import { mapActions, mapState, mapGetters } from 'vuex'
 import firebase from '~/plugins/firebase'
 
 export default {
-  name: 'Signup',
+  name: 'SignIn',
   data() {
     return {
       username: '',
@@ -56,12 +56,12 @@ export default {
   },
   methods: {
     ...mapActions(['setUser']),
-    signUp() {
+    signIn() {
       firebase
         .auth()
-        .createUserWithEmailAndPassword(this.username, this.password)
+        .signInWithEmailAndPassword(this.username, this.password)
         .then((user) => {
-          alert('Create account: ', user.email)
+          alert('Succeeded LogIn : ', user.email)
         })
         .catch((error) => {
           alert(error.message)
