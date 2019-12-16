@@ -1,10 +1,10 @@
 <template>
   <div class="w-screen h-screen flex flex-col justify-center items-center bg-gray-200">
-    <div class="max-w-2xl bg-white shadow-md rounded px-8 pt-6 pb-8 border border-green-600">
-      <h2 class="font-bold text-2xl text-center mb-2">店舗名:{{ name }}</h2>
-      <h2 class="font-bold text-2xl text-center mb-2">住所:{{ address }}</h2>
+    <div class="max-w-3xl bg-white shadow-md rounded px-8 pt-6 pb-8 border border-green-600">
+      <h2 class="font-bold text-3xl text-center mb-2">{{ name }}</h2>
+      <h2 class="font-bold text-1xl text-center mb-2">{{ address }}</h2>
       <h2 class="font-bold text-1xl text-center mb-2">評価:{{ ratings }}</h2>
-      <h2 class="font-bold text-1xl text-center mb-2">Link:{{ url }}</h2>
+      <nuxt-link :to="url">Google Mapで見る</nuxt-link>
     </div>
   </div>
 </template>
