@@ -1,8 +1,10 @@
 <template>
   <div class="w-screen h-screen flex flex-col justify-center items-center bg-gray-200">
     <div class="max-w-2xl bg-white shadow-md rounded px-8 pt-6 pb-8 border border-green-600">
-      <h2 class="font-bold text-3xl text-center mb-2">{{ name }}</h2>
-      <h3 class="font-bold text-3xl text-center mb-2">{{ address }}</h3>
+      <h2 class="font-bold text-2xl text-center mb-2">店舗名:{{ name }}</h2>
+      <h2 class="font-bold text-2xl text-center mb-2">住所:{{ address }}</h2>
+      <h2 class="font-bold text-1xl text-center mb-2">評価:{{ ratings }}</h2>
+      <h2 class="font-bold text-1xl text-center mb-2">Link:{{ url }}</h2>
     </div>
   </div>
 </template>
@@ -15,11 +17,20 @@ export default {
       method: 'get',
       params: {
         place_id: params.id,
-        fields: 'name,formatted_address,photo'
+        fields: 'name,formatted_address,user_ratings_total'
       }
     })
     console.log(response)
-    return { name: response.result.name, address: response.result.formatted_address }
+    return {
+      name: response.result.name,
+      address: response.result.formatted_address,
+      ratings: response.result.user_ratings_total,
+      url:
+        'https://www.google.com/maps/search/?api=1&query=' +
+        response.result.name +
+        'query_place_id=' +
+        params.id
+    }
   }
 }
 </script>
