@@ -66,14 +66,15 @@ export default {
   text-align: center;
   border-top: 1px solid #eee;
   font-size: 24px;
+  font: bold;
   padding: 10px;
 }
 .card-link a {
   text-decoration: none;
-  color: #0bd;
+  color: rgba(50, 100, 200, 1);
   margin: 0 10px;
 }
 .card-link a:hover {
-  color: #0090aa;
+  color: rgba(20, 170, 220, 1);
 }
 </style>
