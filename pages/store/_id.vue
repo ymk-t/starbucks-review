@@ -11,7 +11,7 @@
 export default {
   name: 'Starbucks',
   async asyncData({ params, $axios }) {
-    const response = await $axios.$get('/.netlify/place-by-id', {
+    const response = await $axios.$get('/.netlify/functions/place-by-id', {
       method: 'get',
       params: {
         place_id: params.id,
