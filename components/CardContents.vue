@@ -65,7 +65,8 @@ export default {
 .card-link {
   text-align: center;
   border-top: 1px solid #eee;
-  padding: 20px;
+  font-size: 24px;
+  padding: 10px;
 }
 .card-link a {
   text-decoration: none;
