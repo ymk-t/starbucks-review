@@ -4,7 +4,7 @@
       <h2 class="font-bold text-3xl text-center mb-2">{{ name }}</h2>
       <h2 class="font-bold text-1xl text-center mb-2">{{ address }}</h2>
       <h2 class="font-bold text-1xl text-center mb-2">評価:{{ rating }}</h2>
-      <a class="text-1xl text-center mb-2" :href="url">Google Mapで見る</a>
+      <a class="md:flex md:justify-center" :href="url">Google Mapで見る</a>
     </div>
   </div>
 </template>
