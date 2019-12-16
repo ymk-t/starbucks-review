@@ -13,10 +13,10 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
-    <form method="get" action="#" class="search_container">
+    <!-- <form method="get" action="#" class="search_container">
       <input class="search-store" placeholder=" 店舗・メニューを探す" />
       <input class="search-store" type="submit" value="検索" />
-    </form>
+    </form> -->
   </div>
 </template>
 
