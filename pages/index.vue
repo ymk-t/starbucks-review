@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <div
-      class="container"
-      :style="{
-        'background-image': 'url(' + assetsImage + ')'
-      }"
-    >
+  <div
+    class="container"
+    :style="{
+      'background-image': 'url(' + assetsImage + ')'
+    }"
+  >
+    <div>
       <img class="title-logo" src="~/assets/img/StaReco.png" />
       <h2 class="subtitle">
         お気に入りのスタバを見つけよう！
@@ -34,7 +34,6 @@
 <script>
 import CardContents from '~/components/CardContents.vue'
 import AssetsImage from '~/assets/img/Starbacks-China.jpg'
-
 export default {
   layout: 'ForTopPage',
   head: {
@@ -100,19 +99,17 @@ export default {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 1000px) {
   .container {
     margin-top: 40px;
     min-height: 100vh;
     justify-content: center;
-    position: relative;
     align-items: center;
     text-align: center;
     background-size: cover;
   }
-
-  .container::after {
-    background-color: rgba(20, 50, 20, 0.3);
+  .container::before {
+    background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
     top: 0;
     right: 0;
@@ -120,7 +117,6 @@ export default {
     left: 0;
     content: ' ';
   }
-
   .subtitle {
     font-weight: 300;
     font-size: 18px;
@@ -140,19 +136,16 @@ export default {
     z-index: 10;
   }
 }
-
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 999px) {
   .container {
-    padding-top: 30px;
-    padding-bottom: 250px;
-    padding-right: 150px;
-    position: relative;
+    padding-top: 50px;
+    padding-bottom: 100%;
+    min-height: 40vh;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-size: cover;
   }
-
   .container::before {
     background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
@@ -162,7 +155,6 @@ export default {
     left: 0;
     content: ' ';
   }
-
   .subtitle {
     font-weight: 300;
     font-size: 22px;
