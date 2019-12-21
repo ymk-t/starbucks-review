@@ -5,7 +5,7 @@
   "author": "Yumeki",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt --port 3000",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -14,7 +14,7 @@
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "postinstall": "netlify-lambda install",
     "lambda-build": "netlify-lambda build ./functions",
-    "lambda-dev": "netlify-lambda serve ./functions"
+    "lambda-dev": "netlify-lambda serve ./functions -p 9000"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",

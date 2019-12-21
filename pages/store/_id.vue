@@ -24,7 +24,6 @@ export default {
         fields: 'name,formatted_address,rating'
       }
     })
-    console.log(response)
     return {
       name: response.result.name,
       address: response.result.formatted_address,

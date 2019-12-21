@@ -1,11 +1,11 @@
 <template>
-  <div
-    class="container"
-    :style="{
-      'background-image': 'url(' + assetsImage + ')'
-    }"
-  >
-    <div>
+  <div>
+    <div
+      class="container"
+      :style="{
+        'background-image': 'url(' + assetsImage + ')'
+      }"
+    >
       <img class="title-logo" src="~/assets/img/StaReco.png" />
       <h2 class="subtitle">
         お気に入りのスタバを見つけよう！
@@ -105,14 +105,15 @@ export default {
     margin-top: 40px;
     min-height: 100vh;
     justify-content: center;
+    position: relative;
     align-items: center;
     text-align: center;
-    background-size: cover;
+    background-size: 1280px 880px;
   }
 
   .container::before {
-    background-color: rgba(0, 0, 0, 0.4);
-    position: fixed;
+    background-color: rgba(30, 30, 30, 0.5);
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
