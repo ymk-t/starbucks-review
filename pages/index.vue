@@ -19,7 +19,7 @@
         />
       </h2>
     </div>
-    <ul v-for="place in places" :key="place.name">
+    <li v-for="place in places" :key="place.name">
       <CardContents
         :key="place.placeId"
         :name="place.name"
@@ -27,7 +27,7 @@
         :formatted-address="place.formattedAddress"
         :photo="place.photo"
       />
-    </ul>
+    </li>
   </div>
 </template>
 
@@ -100,18 +100,18 @@ export default {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 680px) {
   .container {
     margin-top: 40px;
-    min-height: 100vh;
+    padding-bottom: 300px;
     justify-content: center;
     position: relative;
     align-items: center;
     text-align: center;
-    background-size: 1280px 880px;
+    background-size: 1080px 700px;
   }
 
-  .container::before {
+  .container::after {
     background-color: rgba(30, 30, 30, 0.5);
     position: absolute;
     top: 0;
@@ -141,15 +141,15 @@ export default {
   }
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 680px) {
   .container {
-    padding-top: 60px;
-    padding-bottom: 125%;
-    min-height: 60vh;
+    padding-top: 30px;
+    padding-bottom: 250px;
+    max-height: 300vh;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-size: cover;
+    background-size: 880px 600px;
   }
 
   .container::before {
