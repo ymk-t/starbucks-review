@@ -9,6 +9,26 @@
         :href="url"
         >Google Mapで見る</a
       >
+      <ul class="flex justify-around items-center my-8 mx-auto">
+        <li class="mx-4">
+          <img class="w-12 h-12" src="~assets/icons/chair.svg" />
+        </li>
+        <li class="mx-4">
+          <img class="w-12 h-12" src="~assets/icons/spacious.svg" />
+        </li>
+        <li class="mx-4">
+          <img class="w-12 h-12" src="~assets/icons/instagram.svg" />
+        </li>
+        <li class="mx-4">
+          <img class="w-12 h-12" src="~assets/icons/unicorn.svg" />
+        </li>
+        <li class="mx-4">
+          <img class="w-12 h-12" src="~assets/icons/serenity.svg" />
+        </li>
+        <li class="mx-4">
+          <img class="w-12 h-12" src="~assets/icons/vibrant.svg" />
+        </li>
+      </ul>
     </div>
   </div>
 </template>
