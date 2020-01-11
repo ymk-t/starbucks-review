@@ -11,7 +11,12 @@
       >
       <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-4">
-          <img class="w-12 h-12" src="~assets/icons/chair.svg" />
+          <input
+            class="w-12 h-12"
+            type="image"
+            src="~assets/icons/chair.svg"
+            @click="vote(chair)"
+          />
         </li>
         <li class="mx-4">
           <img class="w-12 h-12" src="~assets/icons/spacious.svg" />
@@ -29,11 +34,18 @@
           <img class="w-12 h-12" src="~assets/icons/vibrant.svg" />
         </li>
       </ul>
+      <ul class="flex justify-around items-center my-8 mx-auto">
+        <li class="mx-4">
+          <p>{{ showVote(chair) }}</p>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
+import firebase from '~/plugins/firebase'
+
 export default {
   name: 'Starbucks',
   async asyncData({ params, $axios }) {
@@ -53,6 +65,37 @@ export default {
         response.result.name +
         'query_place_id=' +
         params.id
+    }
+  },
+  methods: {
+    vote(tag) {
+      const admin = require('firebase-admin')
+      const functions = require('firebase-functions')
+      admin.initializeApp(functions.config().firebase)
+      const db = admin.firestore()
+      const category = db.collection('review').doc(tag)
+      category.update({
+        population: firebase.firestore.FieldValue.increment(1)
+      })
+    },
+    showVote(tag) {
+      const admin = require('firebase-admin')
+      const functions = require('firebase-functions')
+      admin.initializeApp(functions.config().firebase)
+      const db = admin.firestore()
+      const voteRef = db.collection('review').doc(tag)
+      const getDoc = voteRef
+        .get()
+        .then((doc) => {
+          if (!doc.exists) {
+            return 0
+          } else {
+            return getDoc
+          }
+        })
+        .catch((err) => {
+          console.log('Error getting document', err)
+        })
     }
   }
 }
