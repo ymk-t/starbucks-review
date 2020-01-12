@@ -31,7 +31,7 @@
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-4">
-          <p>{{ data.chair }}</p>
+          <p>{{ data.popularity }}</p>
         </li>
       </ul>
     </div>
