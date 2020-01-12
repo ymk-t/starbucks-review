@@ -18,8 +18,8 @@
       </div>
       <div class="flex justify-end my-2">
         <button
-          class="w-full bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded"
           @click="signIn"
+          class="w-full bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded"
         >
           ログイン
         </button>
