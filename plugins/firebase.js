@@ -7,7 +7,7 @@ if (!firebase.apps.length) {
     apiKey: 'AIzaSyBnEo2Xsb_0hlZanuJLag3MkY6_61kIh9s',
     authDomain: process.env.AUTHDOMAIN,
     databaseURL: process.env.DATABASEURL,
-    projectId: process.env.PROJECTID,
+    projectId: 'starbucks-review',
     messagingSenderId: process.env.MESSAGINGSENDERID,
     appId: process.env.APPID
   })
