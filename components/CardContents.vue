@@ -1,7 +1,7 @@
 <template>
   <li>
     <div class="card">
-      <img class="card-img" :src="photo" />
+      <img :src="photo" class="card-img" />
       <div class="card-content">
         <h1>{{ name }}</h1>
         <p>{{ formattedAddress }}</p>

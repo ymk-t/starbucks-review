@@ -1,9 +1,9 @@
 <template>
   <div
-    class="container"
     :style="{
       'background-image': 'url(' + assetsImage + ')'
     }"
+    class="container"
   >
     <div>
       <img class="title-logo" src="~/assets/img/StaReco.png" />
@@ -13,9 +13,9 @@
         <input
           ref="starSearch"
           v-model="searchQuery"
+          @change="searchResult"
           class="text-black"
           placeholder="店名or場所を入力して下さい"
-          @change="searchResult"
         />
       </h2>
     </div>
