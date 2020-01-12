@@ -85,7 +85,7 @@ export default {
           if (!doc.exists) {
             return 0
           } else {
-            console.log(doc.data())
+            console.log(doc.data().popularity)
             return doc.data().popularity
           }
         })
