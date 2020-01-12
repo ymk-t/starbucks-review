@@ -5,17 +5,17 @@
       <h2 class="font-bold text-1xl text-center mb-2">{{ address }}</h2>
       <h2 class="font-bold text-1xl text-center mb-2">評価:{{ rating }}</h2>
       <a
-        class="md:flex md:justify-center text-2xl font-bold text-blue-700 hover:text-blue-500"
         :href="url"
+        class="md:flex md:justify-center text-2xl font-bold text-blue-700 hover:text-blue-500"
         >Google Mapで見る</a
       >
       <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-4">
           <input
+            @click="vote(chair)"
             class="w-12 h-12"
             type="image"
             src="~assets/icons/chair.svg"
-            @click="vote(chair)"
           />
         </li>
         <li class="mx-4">
@@ -44,7 +44,10 @@
 </template>
 
 <script>
+// eslint-disable-next-line import/no-duplicates
 import firebase from '~/plugins/firebase'
+// eslint-disable-next-line import/no-duplicates
+import db from '~/plugins/firebase'
 
 export default {
   name: 'Starbucks',
@@ -69,20 +72,12 @@ export default {
   },
   methods: {
     vote(tag) {
-      const admin = require('firebase-admin')
-      const functions = require('firebase-functions')
-      admin.initializeApp(functions.config().firebase)
-      const db = admin.firestore()
       const category = db.collection('review').doc(tag)
       category.update({
         population: firebase.firestore.FieldValue.increment(1)
       })
     },
     showVote(tag) {
-      const admin = require('firebase-admin')
-      const functions = require('firebase-functions')
-      admin.initializeApp(functions.config().firebase)
-      const db = admin.firestore()
       const voteRef = db.collection('review').doc(tag)
       const getDoc = voteRef
         .get()

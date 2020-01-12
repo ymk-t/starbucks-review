@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+require('firebase/firestore')
 
 // Your web app's Firebase configuration
 if (!firebase.apps.length) {
@@ -12,4 +13,7 @@ if (!firebase.apps.length) {
   })
 }
 
+const db = firebase.firestore()
+
 export default firebase
+export { db }
