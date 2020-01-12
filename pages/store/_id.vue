@@ -31,7 +31,7 @@
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-4">
-          <p>{{ showVote('chair') }}</p>
+          <p class="font-bold text-3xl text-center">{{ showVote('chair') }}</p>
         </li>
       </ul>
     </div>
