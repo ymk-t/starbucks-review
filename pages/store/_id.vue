@@ -11,7 +11,7 @@
       >
       <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-4">
-          <img @click="vote" class="w-12 h-12" src="~assets/icons/chair.svg" />
+          <img @click="vote('chair')" class="w-12 h-12" src="~assets/icons/chair.svg" />
         </li>
         <li class="mx-4">
           <img class="w-12 h-12" src="~assets/icons/spacious.svg" />
