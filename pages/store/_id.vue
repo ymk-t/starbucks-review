@@ -12,7 +12,7 @@
       <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-4">
           <input
-            @click="vote(chair)"
+            @click="vote('chair')"
             class="w-12 h-12"
             type="image"
             src="~assets/icons/chair.svg"
@@ -36,7 +36,7 @@
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-4">
-          <p>{{ showVote(chair) }}</p>
+          <p>{{ showVote('chair') }}</p>
         </li>
       </ul>
     </div>
