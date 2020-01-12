@@ -44,10 +44,7 @@
 </template>
 
 <script>
-// eslint-disable-next-line import/no-duplicates
-import firebase from '~/plugins/firebase'
-// eslint-disable-next-line import/no-duplicates
-import db from '~/plugins/firebase'
+import { firebase, db } from '~/plugins/firebase'
 
 export default {
   name: 'Starbucks',
