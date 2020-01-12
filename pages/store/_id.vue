@@ -19,7 +19,7 @@
           />
         </li>
         <li class="mx-4">
-          <img class="w-12 h-12" src="../static/icons/spacious.svg" />
+          <img class="w-12 h-12" src="static/icons/spacious.svg" />
         </li>
         <li class="mx-4">
           <img class="w-12 h-12" src="~assets/icons/instagram.svg" />
