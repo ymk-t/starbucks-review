@@ -14,8 +14,8 @@
           <input
             @click="vote('chair')"
             class="w-12 h-12"
-            type="file"
-            src="~assets/icons/chair.svg"
+            type="image"
+            src="~/assets/icons/chair.svg"
           />
         </li>
         <li class="mx-4">
