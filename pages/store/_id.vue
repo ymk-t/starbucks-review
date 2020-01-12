@@ -30,9 +30,7 @@
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
-        <li class="mx-4">
-          <p class="font-bold text-3xl text-center">評価数："{{ showVote('chair') }}"</p>
-        </li>
+        <li class="mx-4">評価数：{{ showVote('chair') }}</li>
       </ul>
     </div>
   </div>
