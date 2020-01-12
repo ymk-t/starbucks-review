@@ -31,7 +31,7 @@
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-4">
-          <p>{{ data.popularity }}</p>
+          <p>{{ showVote('chair') }}</p>
         </li>
       </ul>
     </div>
@@ -45,8 +45,7 @@ export default {
   name: 'Starbucks',
   data() {
     return {
-      id: '',
-      data: []
+      id: ''
     }
   },
   async asyncData({ params, $axios }) {
@@ -86,7 +85,7 @@ export default {
           if (!doc.exists) {
             return 0
           } else {
-            this.data = doc.data()
+            return doc.data().popularity
           }
         })
         .catch((err) => {
