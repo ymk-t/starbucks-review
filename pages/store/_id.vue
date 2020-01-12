@@ -31,7 +31,7 @@
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-4">
-          <p class="font-bold text-3xl text-center">{{ showVote('chair') }}</p>
+          <p class="font-bold text-3xl text-center">評価数：{{ showVote('chair') }}</p>
         </li>
       </ul>
     </div>
@@ -86,7 +86,7 @@ export default {
             return 0
           } else {
             console.log(doc.data().popularity)
-            return '評価数：' + doc.data().popularity
+            return doc.data().popularity
           }
         })
         .catch((err) => {
