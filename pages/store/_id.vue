@@ -86,7 +86,7 @@ export default {
             return 0
           } else {
             console.log(doc.data().popularity)
-            return doc.data().popularity
+            return '評価数：' + doc.data().popularity
           }
         })
         .catch((err) => {
