@@ -70,22 +70,22 @@ export default {
   },
   methods: {
     vote(tag) {
-      const category = db.collection('review').doc(this.id)
+      const category = db.collection(this.id).doc(tag)
       // eslint-disable-next-line no-unused-vars
-      category.set({ tag: 0 }, { merge: true })
+      category.set({ popularity: 0 }, { merge: true })
       category.update({
-        tag: firebase.firestore.FieldValue.increment(1)
+        popularity: firebase.firestore.FieldValue.increment(1)
       })
     },
     showVote(tag) {
-      const voteRef = db.collection('review').doc(this.id)
+      const voteRef = db.collection(this.id).doc(tag)
       voteRef
         .get()
         .then((doc) => {
           if (!doc.exists) {
             return 0
           } else {
-            return doc.data().tag
+            return doc.data().popularity
           }
         })
         .catch((err) => {
