@@ -15,7 +15,7 @@
             @click="vote('chair')"
             class="w-12 h-12"
             type="image"
-            src="~assets/icons/chair.svg"
+            src="url(~assets/icons/chair.svg)"
           />
         </li>
         <li class="mx-4">
