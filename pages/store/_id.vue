@@ -43,6 +43,11 @@ import { firebase, db } from '~/plugins/firebase'
 
 export default {
   name: 'Starbucks',
+  data() {
+    return {
+      id: ''
+    }
+  },
   async asyncData({ params, $axios }) {
     const response = await $axios.$get('/.netlify/functions/place-by-id', {
       method: 'get',
@@ -55,6 +60,7 @@ export default {
       name: response.result.name,
       address: response.result.formatted_address,
       rating: response.result.rating,
+      id: params.id,
       url:
         'https://www.google.com/maps/search/?api=1&query=' +
         response.result.name +
@@ -64,22 +70,22 @@ export default {
   },
   methods: {
     vote(tag) {
-      const category = db.collection('review').doc(tag)
+      const category = db.collection('review').doc(this.id)
       // eslint-disable-next-line no-unused-vars
-      const setWithMerge = category.set({ popularity: 0 }, { merge: true })
+      category.set({ tag: 0 }, { merge: true })
       category.update({
-        popularity: firebase.firestore.FieldValue.increment(1)
+        tag: firebase.firestore.FieldValue.increment(1)
       })
     },
     showVote(tag) {
-      const voteRef = db.collection('review').doc(tag)
-      const getDoc = voteRef
+      const voteRef = db.collection('review').doc(this.id)
+      voteRef
         .get()
         .then((doc) => {
           if (!doc.exists) {
             return 0
           } else {
-            return getDoc
+            return doc.data().tag
           }
         })
         .catch((err) => {
