@@ -70,8 +70,10 @@ export default {
   methods: {
     vote(tag) {
       const category = db.collection('review').doc(tag)
+      // eslint-disable-next-line no-unused-vars
+      const setWithMerge = category.set({ popularity: 0 }, { merge: true })
       category.update({
-        population: firebase.firestore.FieldValue.increment(1)
+        popularity: firebase.firestore.FieldValue.increment(1)
       })
     },
     showVote(tag) {
