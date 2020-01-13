@@ -46,8 +46,8 @@
 <script>
 import { firebase, db } from '~/plugins/firebase'
 
-async function getVote(tag) {
-  const voteRef = db.collection(this.id).doc(tag)
+async function getVote(id, tag) {
+  const voteRef = db.collection(id).doc(tag)
   let votenum = -1
   await voteRef
     .get()
@@ -101,7 +101,7 @@ export default {
       })
     },
     showVote(tag) {
-      getVote(tag).then((res) => {
+      getVote(this.id, tag).then((res) => {
         return res
       })
     }
