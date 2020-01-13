@@ -31,20 +31,10 @@
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-2">評価数：{{ showVote('chair') }}</li>
-      </ul>
-      <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-2">評価数：{{ showVote('spacious') }}</li>
-      </ul>
-      <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-2">評価数：{{ showVote('instagram') }}</li>
-      </ul>
-      <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-2">評価数：{{ showVote('unicorn') }}</li>
-      </ul>
-      <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-2">評価数：{{ showVote('serenity') }}</li>
-      </ul>
-      <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-2">評価数：{{ showVote('vibrant') }}</li>
       </ul>
     </div>
