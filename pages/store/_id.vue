@@ -32,12 +32,12 @@
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
-        <li class="mx-2 text-sm">評価数：{{ chair }}</li>
-        <li class="mx-2 text-sm">評価数：{{ spaciou }}</li>
-        <li class="mx-2 text-sm">評価数：{{ instagram }}</li>
-        <li class="mx-2 text-sm">評価数：{{ unicorn }}</li>
-        <li class="mx-2 text-sm">評価数：{{ serenity }}</li>
-        <li class="mx-2 text-sm">評価数：{{ vibrant }}</li>
+        <li class="mx-2 text-sm">評価数：{{ popularity.chair }}</li>
+        <li class="mx-2 text-sm">評価数：{{ popularity.spaciou }}</li>
+        <li class="mx-2 text-sm">評価数：{{ popularity.instagram }}</li>
+        <li class="mx-2 text-sm">評価数：{{ popularity.unicorn }}</li>
+        <li class="mx-2 text-sm">評価数：{{ popularity.serenity }}</li>
+        <li class="mx-2 text-sm">評価数：{{ popularity.vibrant }}</li>
       </ul>
     </div>
   </div>
@@ -46,10 +46,10 @@
 <script>
 import { firebase, db } from '~/plugins/firebase'
 
-async function getVote(id, tag) {
+function getVote(id, tag) {
   const voteRef = db.collection(id).doc(tag)
   let votenum = -1
-  await voteRef
+  voteRef
     .get()
     .then((doc) => {
       if (!doc.exists) {
@@ -69,14 +69,23 @@ export default {
   name: 'Starbucks',
   data() {
     return {
-      id: '',
-      popularity: {
-        chair: 0,
-        spacious: 0,
-        instagram: 0,
-        unicorn: 0,
-        serenity: 0,
-        vibrant: 0
+      id: ''
+    }
+  },
+  computed: {
+    popularity() {
+      const tags = ['chair', 'spacious', 'instagram', 'unicorn', 'serenity', 'vibrant']
+      const result = [0, 0, 0, 0, 0, 0]
+      for (const i in tags) {
+        result[i] = getVote(this.id, tags[i])
+      }
+      return {
+        chair: result[0],
+        spacious: result[1],
+        instagram: result[2],
+        unicorn: result[3],
+        serenity: result[4],
+        vibrant: result[5]
       }
     }
   },
