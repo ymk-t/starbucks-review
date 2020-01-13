@@ -9,28 +9,43 @@
         class="md:flex md:justify-center text-2xl font-bold text-blue-700 hover:text-blue-500"
         >Google Mapで見る</a
       >
-      <ul class="flex justify-around items-center my-8 mx-auto">
-        <li class="mx-4">
+      <ul class="flex justify-around items-center ">
+        <li class="mx-4 cursor-pointer hover:bg-blue-300">
           <img @click="vote('chair')" class="w-12 h-12" src="~assets/icons/chair.svg" />
         </li>
-        <li class="mx-4">
-          <img class="w-12 h-12" src="~assets/icons/spacious.svg" />
+        <li class="mx-4 cursor-pointer hover:bg-blue-300">
+          <img @click="vote('spacious')" class="w-12 h-12" src="~assets/icons/spacious.svg" />
         </li>
-        <li class="mx-4">
-          <img class="w-12 h-12" src="~assets/icons/instagram.svg" />
+        <li class="mx-4 cursor-pointer hover:bg-blue-300">
+          <img @click="vote('instagram')" class="w-12 h-12" src="~assets/icons/instagram.svg" />
         </li>
-        <li class="mx-4">
-          <img class="w-12 h-12" src="~assets/icons/unicorn.svg" />
+        <li class="mx-4 cursor-pointer hover:bg-blue-300">
+          <img @click="vote('unicorn')" class="w-12 h-12" src="~assets/icons/unicorn.svg" />
         </li>
-        <li class="mx-4">
-          <img class="w-12 h-12" src="~assets/icons/serenity.svg" />
+        <li class="mx-4 cursor-pointer hover:bg-blue-300">
+          <img @click="vote('serenity')" class="w-12 h-12" src="~assets/icons/serenity.svg" />
         </li>
-        <li class="mx-4">
-          <img class="w-12 h-12" src="~assets/icons/vibrant.svg" />
+        <li class="mx-4 cursor-pointer hover:bg-blue-300">
+          <img @click="vote('vibrant')" class="w-12 h-12" src="~assets/icons/vibrant.svg" />
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
-        <li class="mx-4">評価数：{{ showVote('chair') }}</li>
+        <li class="mx-2">評価数：{{ showVote('chair') }}</li>
+      </ul>
+      <ul class="flex justify-around items-center my-8 mx-auto">
+        <li class="mx-2">評価数：{{ showVote('spacious') }}</li>
+      </ul>
+      <ul class="flex justify-around items-center my-8 mx-auto">
+        <li class="mx-2">評価数：{{ showVote('instagram') }}</li>
+      </ul>
+      <ul class="flex justify-around items-center my-8 mx-auto">
+        <li class="mx-2">評価数：{{ showVote('unicorn') }}</li>
+      </ul>
+      <ul class="flex justify-around items-center my-8 mx-auto">
+        <li class="mx-2">評価数：{{ showVote('serenity') }}</li>
+      </ul>
+      <ul class="flex justify-around items-center my-8 mx-auto">
+        <li class="mx-2">評価数：{{ showVote('vibrant') }}</li>
       </ul>
     </div>
   </div>
