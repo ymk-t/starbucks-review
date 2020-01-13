@@ -84,12 +84,12 @@ export default {
     },
     showVote(tag) {
       const voteRef = db.collection(this.id).doc(tag)
-      let res = 0
+      let res = -1
       voteRef
         .get()
         .then((doc) => {
-          res = -1
           if (!doc.exists) {
+            res = 0
           } else {
             console.log(doc.data().popularity)
             res = doc.data().popularity
