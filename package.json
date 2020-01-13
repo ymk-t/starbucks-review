@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "nuxt --port 3000",
     "build": "nuxt build",
+    "build-dev": "nuxt build --mode development",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
