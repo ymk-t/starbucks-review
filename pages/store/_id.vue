@@ -4,6 +4,7 @@
       <h2 class="font-bold text-3xl text-center mb-2">{{ name }}</h2>
       <h2 class="font-bold text-1xl text-center mb-2">{{ address }}</h2>
       <h2 class="font-bold text-1xl text-center mb-2">評価:{{ rating }}</h2>
+      <h2 class="font-bold text-1xl text-center mb-2">chair:{{ showVote('chair') }}</h2>
       <a
         :href="url"
         class="md:flex md:justify-center text-2xl font-bold text-blue-700 hover:text-blue-500"
