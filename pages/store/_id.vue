@@ -84,21 +84,21 @@ export default {
     },
     showVote(tag) {
       const voteRef = db.collection(this.id).doc(tag)
-      let res = -1
+      let votenum = -1
       voteRef
         .get()
         .then((doc) => {
           if (!doc.exists) {
-            res = 0
+            votenum = 0
           } else {
             console.log(doc.data().popularity)
-            res = doc.data().popularity
+            votenum = doc.data().popularity
           }
         })
         .catch((err) => {
           console.log('Error getting document', err)
         })
-      return res
+      return votenum
     }
   }
 }
