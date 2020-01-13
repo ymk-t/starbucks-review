@@ -16,15 +16,15 @@ async function getVote(id, tag) {
     .then((doc) => {
       if (!doc.exists) {
         voteRef.set({ popularity: 0 }, { merge: true })
-        votenum = 0
+        return 0
       } else {
         votenum = doc.data().popularity
+        return votenum
       }
     })
     .catch((err) => {
       console.log('Error getting document', err)
     })
-  return votenum
 }
 
 export default { setVote, getVote }
