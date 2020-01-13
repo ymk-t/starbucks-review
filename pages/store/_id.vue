@@ -101,9 +101,11 @@ export default {
       })
     },
     showVote(tag) {
+      let count
       getVote(this.id, tag).then((res) => {
-        return res
+        count = res
       })
+      return count
     }
   }
 }
