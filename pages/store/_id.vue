@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { setVote, getVote } from '~/components/fireFunction'
+import { setVote, getVote } from '~/components/fireFunction.js'
 
 export default {
   name: 'Starbucks',
