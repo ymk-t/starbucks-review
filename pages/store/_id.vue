@@ -82,8 +82,8 @@ export default {
         popularity: firebase.firestore.FieldValue.increment(1)
       })
     },
-    async showVote(tag) {
-      const voteRef = await db.collection(this.id).doc(tag)
+    showVote(tag) {
+      const voteRef = db.collection(this.id).doc(tag)
       let res = 0
       voteRef
         .get()
