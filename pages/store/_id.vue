@@ -68,7 +68,15 @@ export default {
   name: 'Starbucks',
   data() {
     return {
-      id: ''
+      id: '',
+      popularity: {
+        chair: 0,
+        spacious: 0,
+        instagram: 0,
+        unicorn: 0,
+        serenity: 0,
+        vibrant: 0
+      }
     }
   },
   watch: {
@@ -80,14 +88,12 @@ export default {
           result[i] = res
         })
       }
-      return {
-        chair: result[0],
-        spacious: result[1],
-        instagram: result[2],
-        unicorn: result[3],
-        serenity: result[4],
-        vibrant: result[5]
-      }
+      this.popularity.chair = result[0]
+      this.popularity.spacious = result[1]
+      this.popularity.instagram = result[2]
+      this.popularity.unicorn = result[3]
+      this.popularity.serenity = result[4]
+      this.popularity.vibrant = result[5]
     }
   },
   async asyncData({ params, $axios }) {
