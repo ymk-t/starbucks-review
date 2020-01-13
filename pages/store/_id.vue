@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { firebase, db } from '~/plugins/firebase'
+import { setVote, getVote } from '~/components/fireFunction'
 
 export default {
   name: 'Starbucks',
@@ -74,30 +74,13 @@ export default {
     }
   },
   methods: {
-    vote(tag) {
-      const category = db.collection(this.id).doc(tag)
-      // eslint-disable-next-line no-unused-vars
-      category.set({ popularity: 0 }, { merge: true })
-      category.update({
-        popularity: firebase.firestore.FieldValue.increment(1)
+    showVote(tag) {
+      getVote(tag).then((res) => {
+        return res
       })
     },
-    async showVote(tag) {
-      const voteRef = db.collection(this.id).doc(tag)
-      let votenum = -1
-      await voteRef
-        .get()
-        .then((doc) => {
-          if (!doc.exists) {
-            votenum = 0
-          } else {
-            votenum = doc.data().popularity
-          }
-        })
-        .catch((err) => {
-          console.log('Error getting document', err)
-        })
-      return Promise.resolve(votenum)
+    addVote(tag) {
+      setVote(tag)
     }
   }
 }
