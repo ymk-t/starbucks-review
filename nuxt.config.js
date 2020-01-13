@@ -6,7 +6,9 @@ export default {
    ** Headers of the page
    */
   vue: {
-    devtools: true
+    config: {
+      devtools: true
+    }
   },
   head: {
     title: process.env.npm_package_name || '',
