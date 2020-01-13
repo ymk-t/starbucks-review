@@ -13,38 +13,57 @@
       <br />
       <ul class="flex justify-around items-center ">
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote(id, 'chair')" class="w-12 h-12" src="~assets/icons/chair.svg" />
+          <img @click="vote('chair')" class="w-12 h-12" src="~assets/icons/chair.svg" />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote(id, 'spacious')" class="w-12 h-12" src="~assets/icons/spacious.svg" />
+          <img @click="vote('spacious')" class="w-12 h-12" src="~assets/icons/spacious.svg" />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote(id, 'instagram')" class="w-12 h-12" src="~assets/icons/instagram.svg" />
+          <img @click="vote('instagram')" class="w-12 h-12" src="~assets/icons/instagram.svg" />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote(id, 'unicorn')" class="w-12 h-12" src="~assets/icons/unicorn.svg" />
+          <img @click="vote('unicorn')" class="w-12 h-12" src="~assets/icons/unicorn.svg" />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote(id, 'serenity')" class="w-12 h-12" src="~assets/icons/serenity.svg" />
+          <img @click="vote('serenity')" class="w-12 h-12" src="~assets/icons/serenity.svg" />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote(id, 'vibrant')" class="w-12 h-12" src="~assets/icons/vibrant.svg" />
+          <img @click="vote('vibrant')" class="w-12 h-12" src="~assets/icons/vibrant.svg" />
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
-        <li class="mx-2 text-sm">評価数：{{ showVote(id, 'chair') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote(id, 'spacious') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote(id, 'instagram') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote(id, 'unicorn') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote(id, 'serenity') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote(id, 'vibrant') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('chair') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('spacious') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('instagram') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('unicorn') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('serenity') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('vibrant') }}</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import { setVote, getVote } from '~/components/fireFunction.js'
+import { firebase, db } from '~/plugins/firebase'
+
+async function getVote(tag) {
+  const voteRef = db.collection(this.id).doc(tag)
+  let votenum = -1
+  await voteRef
+    .get()
+    .then((doc) => {
+      if (!doc.exists) {
+        voteRef.set({ popularity: 0 }, { merge: true })
+        votenum = 0
+      } else {
+        votenum = doc.data().popularity
+      }
+    })
+    .catch((err) => {
+      console.log('Error getting document', err)
+    })
+  return votenum
+}
 
 export default {
   name: 'Starbucks',
@@ -74,13 +93,17 @@ export default {
     }
   },
   methods: {
-    showVote(id, tag) {
-      getVote(id, tag).then((res) => {
-        return res
+    vote(tag) {
+      const category = db.collection(this.id).doc(tag)
+      // eslint-disable-next-line no-unused-vars
+      category.update({
+        popularity: firebase.firestore.FieldValue.increment(1)
       })
     },
-    vote(id, tag) {
-      setVote(id, tag)
+    showVote(tag) {
+      getVote(tag).then((res) => {
+        return res
+      })
     }
   }
 }
