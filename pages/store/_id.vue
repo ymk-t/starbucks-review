@@ -30,12 +30,12 @@
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
-        <li class="mx-2">評価数：{{ showVote('chair') }}</li>
-        <li class="mx-2">評価数：{{ showVote('spacious') }}</li>
-        <li class="mx-2">評価数：{{ showVote('instagram') }}</li>
-        <li class="mx-2">評価数：{{ showVote('unicorn') }}</li>
-        <li class="mx-2">評価数：{{ showVote('serenity') }}</li>
-        <li class="mx-2">評価数：{{ showVote('vibrant') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('chair') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('spacious') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('instagram') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('unicorn') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('serenity') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('vibrant') }}</li>
       </ul>
     </div>
   </div>
