@@ -5,6 +5,9 @@ export default {
   /*
    ** Headers of the page
    */
+  vue: {
+    devtools: true
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
