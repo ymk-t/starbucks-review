@@ -9,6 +9,8 @@
         class="md:flex md:justify-center text-2xl font-bold text-blue-700 hover:text-blue-500"
         >Google Mapで見る</a
       >
+      <br />
+      <br />
       <ul class="flex justify-around items-center ">
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
           <img @click="vote('chair')" class="w-12 h-12" src="~assets/icons/chair.svg" />
