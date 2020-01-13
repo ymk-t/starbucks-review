@@ -32,12 +32,12 @@
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
-        <li class="mx-2 text-sm">評価数：{{ showVote('chair') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote('spacious') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote('instagram') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote('unicorn') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote('serenity') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote('vibrant') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ chair }}</li>
+        <li class="mx-2 text-sm">評価数：{{ spaciou }}</li>
+        <li class="mx-2 text-sm">評価数：{{ instagram }}</li>
+        <li class="mx-2 text-sm">評価数：{{ unicorn }}</li>
+        <li class="mx-2 text-sm">評価数：{{ serenity }}</li>
+        <li class="mx-2 text-sm">評価数：{{ vibrant }}</li>
       </ul>
     </div>
   </div>
@@ -69,7 +69,15 @@ export default {
   name: 'Starbucks',
   data() {
     return {
-      id: ''
+      id: '',
+      popularity: {
+        chair: 0,
+        spacious: 0,
+        instagram: 0,
+        unicorn: 0,
+        serenity: 0,
+        vibrant: 0
+      }
     }
   },
   async asyncData({ params, $axios }) {
@@ -100,12 +108,12 @@ export default {
         popularity: firebase.firestore.FieldValue.increment(1)
       })
     },
-    showVote(tag) {
-      let count
-      getVote(this.id, tag).then((res) => {
-        count = res
-      })
-      return count
+    showVote(popularity) {
+      for (const v of popularity) {
+        getVote(this.id, v).then((res) => {
+          this.popularity[v] = res
+        })
+      }
     }
   }
 }
