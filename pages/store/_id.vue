@@ -84,19 +84,20 @@ export default {
     },
     showVote(tag) {
       const voteRef = db.collection(this.id).doc(tag)
+      let res = 0
       voteRef
         .get()
         .then((doc) => {
           if (!doc.exists) {
-            return 0
           } else {
             console.log(doc.data().popularity)
-            return '評価数：' + doc.data().popularity
+            res = doc.data().popularity
           }
         })
         .catch((err) => {
           console.log('Error getting document', err)
         })
+      return res
     }
   }
 }
