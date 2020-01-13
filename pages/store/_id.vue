@@ -82,23 +82,22 @@ export default {
         popularity: firebase.firestore.FieldValue.increment(1)
       })
     },
-    showVote(tag) {
+    async showVote(tag) {
       const voteRef = db.collection(this.id).doc(tag)
       let votenum = -1
-      voteRef
+      await voteRef
         .get()
         .then((doc) => {
           if (!doc.exists) {
             votenum = 0
           } else {
-            console.log(doc.data().popularity)
             votenum = doc.data().popularity
           }
         })
         .catch((err) => {
           console.log('Error getting document', err)
         })
-      return votenum
+      return Promise.resolve(votenum)
     }
   }
 }
