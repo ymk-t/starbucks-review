@@ -80,11 +80,11 @@ export default {
     }
   },
   watch: {
-    popularity() {
+    popularity(id) {
       const tags = ['chair', 'spacious', 'instagram', 'unicorn', 'serenity', 'vibrant']
       const result = [0, 0, 0, 0, 0, 0]
       for (const i in tags) {
-        getVote(this.id, tags[i]).then((res) => {
+        getVote(id, tags[i]).then((res) => {
           result[i] = res
         })
       }
