@@ -33,7 +33,7 @@
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
         <li class="mx-2 text-sm">評価数：{{ popularity.chair }}</li>
-        <li class="mx-2 text-sm">評価数：{{ popularity.spaciou }}</li>
+        <li class="mx-2 text-sm">評価数：{{ popularity.spacious }}</li>
         <li class="mx-2 text-sm">評価数：{{ popularity.instagram }}</li>
         <li class="mx-2 text-sm">評価数：{{ popularity.unicorn }}</li>
         <li class="mx-2 text-sm">評価数：{{ popularity.serenity }}</li>
@@ -71,12 +71,14 @@ export default {
       id: ''
     }
   },
-  computed: {
+  watch: {
     popularity() {
       const tags = ['chair', 'spacious', 'instagram', 'unicorn', 'serenity', 'vibrant']
       const result = [0, 0, 0, 0, 0, 0]
       for (const i in tags) {
-        result[i] = getVote(this.id, tags[i])
+        getVote(this.id, tags[i]).then((res) => {
+          result[i] = res
+        })
       }
       return {
         chair: result[0],
