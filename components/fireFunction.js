@@ -1,15 +1,15 @@
 import { firebase, db } from '~/plugins/firebase'
 
-function setVote(tag) {
-  const category = db.collection(this.id).doc(tag)
+function setVote(id, tag) {
+  const category = db.collection(id).doc(tag)
   // eslint-disable-next-line no-unused-vars
   category.update({
     popularity: firebase.firestore.FieldValue.increment(1)
   })
 }
 
-async function getVote(tag) {
-  const voteRef = db.collection(this.id).doc(tag)
+async function getVote(id, tag) {
+  const voteRef = db.collection(id).doc(tag)
   let votenum = -1
   await voteRef
     .get()

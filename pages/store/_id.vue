@@ -13,22 +13,22 @@
       <br />
       <ul class="flex justify-around items-center ">
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('chair')" class="w-12 h-12" src="~assets/icons/chair.svg" />
+          <img @click="vote(id, 'chair')" class="w-12 h-12" src="~assets/icons/chair.svg" />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('spacious')" class="w-12 h-12" src="~assets/icons/spacious.svg" />
+          <img @click="vote(id, 'spacious')" class="w-12 h-12" src="~assets/icons/spacious.svg" />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('instagram')" class="w-12 h-12" src="~assets/icons/instagram.svg" />
+          <img @click="vote(id, 'instagram')" class="w-12 h-12" src="~assets/icons/instagram.svg" />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('unicorn')" class="w-12 h-12" src="~assets/icons/unicorn.svg" />
+          <img @click="vote(id, 'unicorn')" class="w-12 h-12" src="~assets/icons/unicorn.svg" />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('serenity')" class="w-12 h-12" src="~assets/icons/serenity.svg" />
+          <img @click="vote(id, 'serenity')" class="w-12 h-12" src="~assets/icons/serenity.svg" />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('vibrant')" class="w-12 h-12" src="~assets/icons/vibrant.svg" />
+          <img @click="vote(id, 'vibrant')" class="w-12 h-12" src="~assets/icons/vibrant.svg" />
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
@@ -74,13 +74,13 @@ export default {
     }
   },
   methods: {
-    showVote(tag) {
-      getVote(tag).then((res) => {
+    showVote(id, tag) {
+      getVote(id, tag).then((res) => {
         return res
       })
     },
-    addVote(tag) {
-      setVote(tag)
+    addVote(id, tag) {
+      setVote(id, tag)
     }
   }
 }
