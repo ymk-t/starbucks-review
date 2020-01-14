@@ -32,7 +32,7 @@
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
-        <li class="mx-2 text-sm">評価数：{{ showVote('chair') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ icons.chair }}</li>
         <li class="mx-2 text-sm">評価数：{{ showVote('spacious') }}</li>
         <li class="mx-2 text-sm">評価数：{{ showVote('instagram') }}</li>
         <li class="mx-2 text-sm">評価数：{{ showVote('unicorn') }}</li>
@@ -62,7 +62,10 @@ export default {
   name: 'Starbucks',
   data() {
     return {
-      id: ''
+      id: '',
+      icons: {
+        chair: 0
+      }
     }
   },
   async asyncData({ params, $axios }) {
@@ -95,10 +98,7 @@ export default {
       })
     },
     showVote(tag) {
-      const result = getVote(this.id, tag).then((res) => {
-        return res.popularity
-      })
-      return result
+      return getVote(this.id, tag)
     }
   }
 }
