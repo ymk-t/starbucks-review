@@ -55,7 +55,7 @@ async function getVote(id, tag) {
         voteRef.set({ popularity: 0 }, { merge: true })
         return 0
       } else {
-        return doc.data().popularity
+        return doc.data()
       }
     })
     .catch((err) => {
@@ -102,7 +102,7 @@ export default {
     },
     showVote(tag) {
       return getVote(this.id, tag).then((res) => {
-        return res
+        return res.popularity
       })
     }
   }
