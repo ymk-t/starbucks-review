@@ -65,7 +65,11 @@ export default {
       id: '',
       icons: {
         chair: 0,
-        spacious: 0
+        spacious: 0,
+        instagram: 0,
+        unicorn: 0,
+        serenity: 0,
+        vibrant: 0
       }
     }
   },
@@ -93,7 +97,6 @@ export default {
     vote(tag) {
       const category = db.collection(this.id).doc(tag)
       // eslint-disable-next-line no-unused-vars
-      category.set({ popularity: 0 }, { merge: true })
       category.update({
         popularity: firebase.firestore.FieldValue.increment(1)
       })
