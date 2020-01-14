@@ -46,9 +46,9 @@
 <script>
 import { firebase, db } from '~/plugins/firebase'
 
-function getVote(id, tag) {
+async function getVote(id, tag) {
   const voteRef = db.collection(id).doc(tag)
-  const votenum = voteRef
+  const votenum = await voteRef
     .get()
     .then((doc) => {
       if (!doc.exists) {
@@ -80,7 +80,7 @@ export default {
     }
   },
   watch: {
-    popularity(id) {
+    async popularity(id) {
       const tags = ['chair', 'spacious', 'instagram', 'unicorn', 'serenity', 'vibrant']
       const result = [0, 0, 0, 0, 0, 0]
       for (const i in tags) {
@@ -88,12 +88,12 @@ export default {
           result[i] = res
         })
       }
-      this.popularity.chair = result[0]
-      this.popularity.spacious = result[1]
-      this.popularity.instagram = result[2]
-      this.popularity.unicorn = result[3]
-      this.popularity.serenity = result[4]
-      this.popularity.vibrant = result[5]
+      this.popularity.chair = await result[0]
+      this.popularity.spacious = await result[1]
+      this.popularity.instagram = await result[2]
+      this.popularity.unicorn = await result[3]
+      this.popularity.serenity = await result[4]
+      this.popularity.vibrant = await result[5]
     }
   },
   async asyncData({ params, $axios }) {
