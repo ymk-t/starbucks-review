@@ -64,7 +64,8 @@ export default {
     return {
       id: '',
       icons: {
-        chair: 0
+        chair: 0,
+        spacious: 0
       }
     }
   },
