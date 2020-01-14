@@ -73,6 +73,14 @@ export default {
       }
     }
   },
+  watch: {
+    icons: {
+      handler(val, oldVal) {
+        console.log('someObj changed')
+      },
+      deep: true
+    }
+  },
   async asyncData({ params, $axios }) {
     const response = await $axios.$get('/.netlify/functions/place-by-id', {
       method: 'get',
