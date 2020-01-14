@@ -47,21 +47,15 @@
 import { firebase, db } from '~/plugins/firebase'
 
 async function getVote(id, tag) {
-  const voteRef = db.collection(id).doc(tag)
-  const votenum = await voteRef
-    .get()
-    .then((doc) => {
-      if (!doc.exists) {
-        voteRef.set({ popularity: 0 }, { merge: true })
-        return 0
-      } else {
-        return doc.data()
-      }
-    })
-    .catch((err) => {
-      console.log('Error getting document', err)
-    })
-  return votenum
+  const voteRef = await db.collection(id).doc(tag)
+  const doc = await voteRef.get()
+
+  if (!doc.exists) {
+    voteRef.set({ popularity: 0 }, { merge: true })
+    return 0
+  } else {
+    return doc.data()
+  }
 }
 
 export default {
