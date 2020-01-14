@@ -98,7 +98,10 @@ export default {
       })
     },
     showVote(tag) {
-      return getVote(this.id, tag)
+      getVote(this.id, tag).then((res) => {
+        this.icons[tag] = res
+      })
+      return this.icons[tag]
     }
   }
 }
