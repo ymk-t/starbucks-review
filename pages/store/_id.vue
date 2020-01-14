@@ -100,6 +100,7 @@ export default {
     showVote(tag) {
       getVote(this.id, tag).then((res) => {
         this.icons[tag] = res
+        console.log(res)
       })
       return this.icons[tag]
     }
