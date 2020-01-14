@@ -95,11 +95,10 @@ export default {
       })
     },
     showVote(tag) {
-      return Promise.resolve(
-        getVote(this.id, tag).then((res) => {
-          return res.popularity
-        })
-      )
+      const result = getVote(this.id, tag).then((res) => {
+        return res.popularity
+      })
+      return result
     }
   }
 }
