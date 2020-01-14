@@ -32,12 +32,12 @@
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
-        <li class="mx-2 text-sm">評価数：{{ popularity.chair }}</li>
-        <li class="mx-2 text-sm">評価数：{{ popularity.spacious }}</li>
-        <li class="mx-2 text-sm">評価数：{{ popularity.instagram }}</li>
-        <li class="mx-2 text-sm">評価数：{{ popularity.unicorn }}</li>
-        <li class="mx-2 text-sm">評価数：{{ popularity.serenity }}</li>
-        <li class="mx-2 text-sm">評価数：{{ popularity.vibrant }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('chair') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('spacious') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('instagram') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('unicorn') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('serenity') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ showVote('vibrant') }}</li>
       </ul>
     </div>
   </div>
@@ -68,32 +68,7 @@ export default {
   name: 'Starbucks',
   data() {
     return {
-      id: '',
-      popularity: {
-        chair: 0,
-        spacious: 0,
-        instagram: 0,
-        unicorn: 0,
-        serenity: 0,
-        vibrant: 0
-      }
-    }
-  },
-  watch: {
-    async popularity(id) {
-      const tags = ['chair', 'spacious', 'instagram', 'unicorn', 'serenity', 'vibrant']
-      const result = [0, 0, 0, 0, 0, 0]
-      for (const i in tags) {
-        getVote(id, tags[i]).then((res) => {
-          result[i] = res
-        })
-      }
-      this.popularity.chair = await result[0]
-      this.popularity.spacious = await result[1]
-      this.popularity.instagram = await result[2]
-      this.popularity.unicorn = await result[3]
-      this.popularity.serenity = await result[4]
-      this.popularity.vibrant = await result[5]
+      id: ''
     }
   },
   async asyncData({ params, $axios }) {
@@ -120,16 +95,15 @@ export default {
     vote(tag) {
       const category = db.collection(this.id).doc(tag)
       // eslint-disable-next-line no-unused-vars
+      category.set({ popularity: 0 }, { merge: true })
       category.update({
         popularity: firebase.firestore.FieldValue.increment(1)
       })
     },
-    showVote(popularity) {
-      for (const v of popularity) {
-        getVote(this.id, v).then((res) => {
-          this.popularity[v] = res
-        })
-      }
+    showVote(tag) {
+      getVote(tag).then((res) => {
+        return res
+      })
     }
   }
 }
