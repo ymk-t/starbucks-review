@@ -95,9 +95,11 @@ export default {
       })
     },
     showVote(tag) {
-      getVote(this.id, tag).then((res) => {
-        return res.popularity
-      })
+      return Promise.resolve(
+        getVote(this.id, tag).then((res) => {
+          return res.popularity
+        })
+      )
     }
   }
 }
