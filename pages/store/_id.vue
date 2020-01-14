@@ -101,7 +101,7 @@ export default {
       })
     },
     showVote(tag) {
-      getVote(tag).then((res) => {
+      return getVote(tag).then((res) => {
         return res
       })
     }
