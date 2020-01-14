@@ -95,7 +95,7 @@ export default {
       })
     },
     showVote(tag) {
-      return getVote(this.id, tag).then((res) => {
+      getVote(this.id, tag).then((res) => {
         return res.popularity
       })
     }
