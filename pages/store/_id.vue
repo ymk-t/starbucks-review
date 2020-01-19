@@ -14,7 +14,7 @@
       <ul class="flex justify-around items-center ">
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
           <img
-            @click="vote('chair'), showVote(id, 'chair')"
+            @click="vote('chair'), addVote(id, 'chair')"
             class="w-12 h-12"
             src="~assets/icons/chair.svg"
           />
@@ -66,15 +66,7 @@ export default {
   name: 'Starbucks',
   data() {
     return {
-      id: '',
-      icons: {
-        chair: 0,
-        spacious: 0,
-        instagram: 0,
-        unicorn: 0,
-        serenity: 0,
-        vibrant: 0
-      }
+      id: ''
     }
   },
   watch: {
@@ -109,12 +101,14 @@ export default {
         response.result.name +
         'query_place_id=' +
         params.id,
-      chair: initChair,
-      spacious: initSpacious,
-      instagram: initInstagram,
-      unicorn: initUnicorn,
-      serenity: initSerenity,
-      vibrant: initVibrant
+      icons: {
+        chair: initChair,
+        spacious: initSpacious,
+        instagram: initInstagram,
+        unicorn: initUnicorn,
+        serenity: initSerenity,
+        vibrant: initVibrant
+      }
     }
   },
   methods: {
@@ -125,12 +119,8 @@ export default {
         popularity: firebase.firestore.FieldValue.increment(1)
       })
     },
-    showVote(tag) {
-      getVote(this.id, tag).then((res) => {
-        this.icons[tag] = res
-        console.log(res)
-      })
-      return this.icons[tag]
+    addVote(tag) {
+      this.icons[tag] += 1
     }
   }
 }
