@@ -66,7 +66,15 @@ export default {
   name: 'Starbucks',
   data() {
     return {
-      id: ''
+      id: '',
+      icons: {
+        chair: 0,
+        spacious: 0,
+        instagram: 0,
+        unicorn: 0,
+        serenity: 0,
+        vibrant: 0
+      }
     }
   },
   watch: {
