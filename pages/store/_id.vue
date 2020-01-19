@@ -13,7 +13,11 @@
       <br />
       <ul class="flex justify-around items-center ">
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('chair')" class="w-12 h-12" src="~assets/icons/chair.svg" />
+          <img
+            @click="vote('chair'), showVote(id, 'chair')"
+            class="w-12 h-12"
+            src="~assets/icons/chair.svg"
+          />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
           <img @click="vote('spacious')" class="w-12 h-12" src="~assets/icons/spacious.svg" />
