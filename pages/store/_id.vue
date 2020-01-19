@@ -32,12 +32,12 @@
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
-        <li class="mx-2 text-sm">評価数：{{ showVote('chair') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote('spacious') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote('instagram') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote('unicorn') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote('serenity') }}</li>
-        <li class="mx-2 text-sm">評価数：{{ showVote('vibrant') }}</li>
+        <li class="mx-2 text-sm">評価数：{{ chair }}</li>
+        <li class="mx-2 text-sm">評価数：{{ spacious }}</li>
+        <li class="mx-2 text-sm">評価数：{{ instagram }}</li>
+        <li class="mx-2 text-sm">評価数：{{ unicorn }}</li>
+        <li class="mx-2 text-sm">評価数：{{ serenity }}</li>
+        <li class="mx-2 text-sm">評価数：{{ vibrant }}</li>
       </ul>
     </div>
   </div>
@@ -54,7 +54,7 @@ async function getVote(id, tag) {
     voteRef.set({ popularity: 0 }, { merge: true })
     return 0
   } else {
-    return doc.data()
+    return doc.data().popularity
   }
 }
 
@@ -89,6 +89,12 @@ export default {
         fields: 'name,formatted_address,rating'
       }
     })
+    const initChair = await getVote(params.id, 'chair')
+    const initSpacious = await getVote(params.id, 'spacious')
+    const initInstagram = await getVote(params.id, 'instagram')
+    const initUnicorn = await getVote(params.id, 'unicorn')
+    const initSerenity = await getVote(params.id, 'serenity')
+    const initVibrant = await getVote(params.id, 'vibrant')
     return {
       name: response.result.name,
       address: response.result.formatted_address,
@@ -98,7 +104,13 @@ export default {
         'https://www.google.com/maps/search/?api=1&query=' +
         response.result.name +
         'query_place_id=' +
-        params.id
+        params.id,
+      chair: initChair,
+      spacious: initSpacious,
+      instagram: initInstagram,
+      unicorn: initUnicorn,
+      serenity: initSerenity,
+      vibrant: initVibrant
     }
   },
   methods: {
@@ -111,7 +123,7 @@ export default {
     },
     showVote(tag) {
       getVote(this.id, tag).then((res) => {
-        this.icons[tag] = res.popularity
+        this.icons[tag] = res
         console.log(res)
       })
       return this.icons[tag]
