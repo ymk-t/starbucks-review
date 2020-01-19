@@ -36,12 +36,12 @@
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">
-        <li class="mx-2 text-sm">評価数：{{ chair }}</li>
-        <li class="mx-2 text-sm">評価数：{{ spacious }}</li>
-        <li class="mx-2 text-sm">評価数：{{ instagram }}</li>
-        <li class="mx-2 text-sm">評価数：{{ unicorn }}</li>
-        <li class="mx-2 text-sm">評価数：{{ serenity }}</li>
-        <li class="mx-2 text-sm">評価数：{{ vibrant }}</li>
+        <li class="mx-2 text-sm">評価数：{{ icons.chair }}</li>
+        <li class="mx-2 text-sm">評価数：{{ icons.spacious }}</li>
+        <li class="mx-2 text-sm">評価数：{{ icons.instagram }}</li>
+        <li class="mx-2 text-sm">評価数：{{ icons.unicorn }}</li>
+        <li class="mx-2 text-sm">評価数：{{ icons.serenity }}</li>
+        <li class="mx-2 text-sm">評価数：{{ icons.vibrant }}</li>
       </ul>
     </div>
   </div>
