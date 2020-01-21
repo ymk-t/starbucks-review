@@ -82,6 +82,7 @@ export default {
     extend(config, ctx) {}
   },
   generate: {
+    fallback: true,
     routes() {
       return places.map((place) => {
         return `store/${place.id}`
