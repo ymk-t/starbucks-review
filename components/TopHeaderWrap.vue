@@ -32,7 +32,7 @@ export default {
     height: 65px;
     width: 100%;
     position: fixed;
-    background-color: lightgrey;
+    background-color: white;
     opacity: 1;
     top: 0;
     z-index: 20;

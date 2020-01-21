@@ -1,10 +1,5 @@
 <template>
-  <div
-    :style="{
-      'background-image': 'url(' + assetsImage + ')'
-    }"
-    class="container"
-  >
+  <div class="container">
     <div>
       <img class="title-logo" src="~/assets/img/StaReco.png" />
       <h2 class="subtitle">
@@ -20,20 +15,22 @@
       </h2>
     </div>
     <ul v-for="place in places" :key="place.name">
-      <CardContents
-        :key="place.placeId"
-        :name="place.name"
-        :place-id="place.placeId"
-        :formatted-address="place.formattedAddress"
-        :photo="place.photo"
-      />
+      <li>
+        <CardContents
+          :key="place.placeId"
+          :name="place.name"
+          :place-id="place.placeId"
+          :formatted-address="place.formattedAddress"
+          :photo="place.photo"
+        />
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
 import CardContents from '~/components/CardContents.vue'
-import AssetsImage from '~/assets/img/Starbacks-China.jpg'
+import AssetsImage from '~/assets/img/Starbucks_China.jpg'
 export default {
   layout: 'ForTopPage',
   head: {
@@ -102,19 +99,24 @@ export default {
 @media screen and (min-width: 1000px) {
   .container {
     margin-top: 40px;
+    width: 100vw;
+    height: auto;
     min-height: 100vh;
-    justify-content: center;
-    align-items: center;
     text-align: center;
+    justify-content: center;
     background-size: cover;
+    background-image: url('~@/assets/img/Starbucks_China.jpg');
+    background-position: center;
+    background-attachment: fixed;
   }
   .container::before {
     background-color: rgba(0, 0, 0, 0.4);
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+    right: 0;
+    position: fixed;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
     content: ' ';
   }
   .subtitle {
@@ -145,6 +147,7 @@ export default {
     align-items: center;
     text-align: center;
     background-size: cover;
+    background-image: url('~@/assets/img/Starbucks_China.jpg');
   }
   .container::before {
     background-color: rgba(0, 0, 0, 0.4);

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center my-4 mx-auto">
+  <div class="flex justify-center items-center my-2 mx-auto bg-white z-20">
     <div>
       Icons made by
       <a href="https://www.flaticon.com/authors/skyclick" title="Skyclick">Skyclick</a> from
