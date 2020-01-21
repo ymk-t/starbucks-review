@@ -2,8 +2,10 @@
   <div class="container">
     <div>
       <img class="title-logo" src="~/assets/img/StaReco.png" />
-      <h2 class="subtitle">
-        お気に入りのスタバを見つけよう！
+      <div class="subtitle">
+        <h2>
+          お気に入りのスタバを見つけよう！
+        </h2>
         <br />
         <input
           ref="starSearch"
@@ -12,18 +14,16 @@
           class="text-black"
           placeholder="店名or場所を入力して下さい"
         />
-      </h2>
+      </div>
     </div>
     <ul v-for="place in places" :key="place.name">
-      <li>
-        <CardContents
-          :key="place.placeId"
-          :name="place.name"
-          :place-id="place.placeId"
-          :formatted-address="place.formattedAddress"
-          :photo="place.photo"
-        />
-      </li>
+      <CardContents
+        :key="place.placeId"
+        :name="place.name"
+        :place-id="place.placeId"
+        :formatted-address="place.formattedAddress"
+        :photo="place.photo"
+      />
     </ul>
   </div>
 </template>
@@ -121,15 +121,20 @@ export default {
   }
   .subtitle {
     font-weight: 300;
-    font-size: 18px;
+    font-size: 20px;
     color: white;
     word-spacing: 5px;
-    padding-bottom: 15px;
+    padding-top: 40px;
+    padding-bottom: 10px;
     position: relative;
     z-index: 10;
   }
   .subtitle input {
     width: 300px;
+  }
+  .subtitle h2 {
+    font-size: 32px;
+    font-weight: 500;
   }
   .title-logo {
     width: 500px;
@@ -140,14 +145,17 @@ export default {
 }
 @media screen and (max-width: 999px) {
   .container {
-    padding-top: 50px;
-    padding-bottom: 100%;
-    min-height: 40vh;
+    margin-top: 40px;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-size: cover;
     background-image: url('~@/assets/img/Starbucks_China.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
   .container::before {
     background-color: rgba(0, 0, 0, 0.4);
