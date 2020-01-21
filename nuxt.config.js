@@ -1,4 +1,4 @@
-import places from '~/pages/index.vue'
+import places from '~/pages/index'
 require('dotenv').config()
 
 export default {
