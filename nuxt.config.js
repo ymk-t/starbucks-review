@@ -79,5 +79,8 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  generate: {
+    routes: ['/store/1', '/store/2', '/store/3']
   }
 }
