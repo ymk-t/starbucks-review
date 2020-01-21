@@ -1,4 +1,3 @@
-import places from './pages/index'
 require('dotenv').config()
 
 export default {
@@ -82,11 +81,6 @@ export default {
     extend(config, ctx) {}
   },
   generate: {
-    fallback: true,
-    routes() {
-      return places.map((place) => {
-        return `store/${place.id}`
-      })
-    }
+    fallback: true
   }
 }
