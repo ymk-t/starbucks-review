@@ -1,3 +1,4 @@
+import places from '~/pages/index.vue'
 require('dotenv').config()
 
 export default {
@@ -81,6 +82,10 @@ export default {
     extend(config, ctx) {}
   },
   generate: {
-    routes: ['/store/1', '/store/2', '/store/3']
+    routes() {
+      return places.map((place) => {
+        return `store/${place.id}`
+      })
+    }
   }
 }
