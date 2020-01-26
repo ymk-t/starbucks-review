@@ -99,14 +99,12 @@ export default {
 @media screen and (min-width: 1000px) {
   .container {
     margin-top: 40px;
-    width: 100vw;
-    height: auto;
-    min-height: 100vh;
+    min-width: 100vw;
+    min-height: 700px;
     text-align: center;
     justify-content: center;
     background-size: cover;
     background-image: url('~@/assets/img/Starbucks_China.jpg');
-    background-position: center;
     background-attachment: fixed;
   }
   .container::before {
@@ -146,15 +144,13 @@ export default {
 @media screen and (max-width: 999px) {
   .container {
     margin-top: 40px;
-    width: 100vw;
-    height: auto;
+    min-width: 100vw;
     min-height: 100vh;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-image: url('~@/assets/img/Starbucks_China.jpg');
     background-size: cover;
-    background-position: center;
     background-attachment: fixed;
   }
   .container::before {

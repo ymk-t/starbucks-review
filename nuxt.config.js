@@ -53,7 +53,8 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/proxy',
-    '@nuxtjs/svg'
+    '@nuxtjs/svg',
+    '@nuxtjs/tailwindcss'
   ],
   /*
    ** Axios module configuration

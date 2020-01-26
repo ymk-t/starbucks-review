@@ -6,7 +6,7 @@
       <h2 class="font-bold text-1xl text-center mb-2">評価:{{ rating }}</h2>
       <a
         :href="url"
-        class="md:flex md:justify-center text-2xl font-bold text-blue-700 hover:text-blue-500"
+        class="flex justify-around text-2xl font-bold text-blue-700 hover:text-blue-500"
         >Google Mapで見る</a
       >
       <br />
@@ -20,7 +20,11 @@
           />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('spacious')" class="w-12 h-12" src="~assets/icons/spacious.svg" />
+          <img
+            @click="vote('spacious')"
+            class="w-12 h-12 hover:scale-110"
+            src="~assets/icons/spacious.svg"
+          />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
           <img @click="vote('instagram')" class="w-12 h-12" src="~assets/icons/instagram.svg" />

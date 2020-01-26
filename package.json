@@ -32,7 +32,8 @@
     "firebase-functions": "^3.3.0",
     "firebase-tools": "^7.11.0",
     "netlify-lambda": "^1.6.3",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "tailwindcss-transforms": "^2.2.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
