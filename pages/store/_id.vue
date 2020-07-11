@@ -1,7 +1,7 @@
 <template>
   <div class="w-screen h-screen flex flex-col justify-center items-center bg-gray-200">
     <div class="max-w-3xl bg-white shadow-md rounded px-8 pt-6 pb-8 border border-green-600">
-      <h2 class="font-bold text-3xl text-center mb-2">{{ name }}</h2>
+      <h2 class="font-bold text-2xl text-center mb-2">{{ name }}</h2>
       <h2 class="font-bold text-1xl text-center mb-2">{{ address }}</h2>
       <h2 class="font-bold text-1xl text-center mb-2">評価:{{ rating }}</h2>
       <a
@@ -15,7 +15,7 @@
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
           <img
             @click="vote('chair'), addVote(id, 'chair')"
-            class="w-12 h-12"
+            class="w-12 h-12 hover:scale-110"
             src="~assets/icons/chair.svg"
           />
         </li>
@@ -27,16 +27,32 @@
           />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('instagram')" class="w-12 h-12" src="~assets/icons/instagram.svg" />
+          <img
+            @click="vote('instagram')"
+            class="w-12 h-12 hover:scale-110"
+            src="~assets/icons/instagram.svg"
+          />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('unicorn')" class="w-12 h-12" src="~assets/icons/unicorn.svg" />
+          <img
+            @click="vote('unicorn')"
+            class="w-12 h-12 hover:scale-110"
+            src="~assets/icons/unicorn.svg"
+          />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('serenity')" class="w-12 h-12" src="~assets/icons/serenity.svg" />
+          <img
+            @click="vote('serenity')"
+            class="w-12 h-12 hover:scale-110"
+            src="~assets/icons/serenity.svg"
+          />
         </li>
         <li class="mx-4 cursor-pointer hover:bg-blue-300">
-          <img @click="vote('vibrant')" class="w-12 h-12" src="~assets/icons/vibrant.svg" />
+          <img
+            @click="vote('vibrant')"
+            class="w-12 h-12 hover:scale-110"
+            src="~assets/icons/vibrant.svg"
+          />
         </li>
       </ul>
       <ul class="flex justify-around items-center my-8 mx-auto">

@@ -65,24 +65,26 @@ export default {
           inputtype: 'textquery'
         }
       })
+      console.log(response)
       if (response.status === 'OK') {
-        const responsePhoto = await this.$axios.$get('/.netlify/functions/mapPhoto', {
-          method: 'get',
-          params: {
-            photoreference: response.candidates[0].photos[0].photo_reference,
-            maxwidth: '200',
-            key: process.env.GOOGLE_MAP_API
-          }
-        })
-        response.candidates.map((place, index) => {
+        for (let i = 0; i < response.candidates.length; i++) {
+          const responsePhoto = await this.$axios.$get('/.netlify/functions/mapPhoto', {
+            method: 'get',
+            params: {
+              photoreference: response.candidates[i].photos[0].photo_reference,
+              maxwidth: '200',
+              key: process.env.GOOGLE_MAP_API
+            }
+          })
           this.places.push({
-            name: place.name,
-            placeId: place.place_id,
-            formattedAddress: place.formatted_address,
-            photoReference: place.photos[0].photo_reference,
+            name: response.candidates[i].name,
+            placeId: response.candidates[i].place_id,
+            formattedAddress: response.candidates[i].formatted_address,
+            photoReference: response.candidates[i].photos[0].photo_reference,
             photo: responsePhoto
           })
-        })
+          console.log(this.places)
+        }
       } else {
       }
     }
