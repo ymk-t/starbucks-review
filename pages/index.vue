@@ -147,7 +147,7 @@ export default {
   .container {
     margin-top: 40px;
     min-width: 100vw;
-    min-height: 100vh;
+    min-height: 700px;
     justify-content: center;
     align-items: center;
     text-align: center;
