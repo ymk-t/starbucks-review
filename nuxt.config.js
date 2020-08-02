@@ -66,8 +66,13 @@ export default {
   },
 
   proxy: {
-    '/.netlify': {
+    'dev': {
       target: 'http://localhost:9000',
+      changeOrigin: true,
+      pathRewrite: { '^/.netlify': '/.netlify' }
+    },
+    'prd': {
+      target: 'https://stareco.netlify.app/',
       changeOrigin: true,
       pathRewrite: { '^/.netlify': '/.netlify' }
     }
